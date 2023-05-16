@@ -844,6 +844,10 @@ section {
   text-align: center;
   z-index: 4;
 }
+.portfolio .portfolio-wrap .portfolio-links2 {
+  text-align: right;
+  z-index: 4;
+}
 
 .portfolio .portfolio-wrap .portfolio-links a {
   color: #fff;

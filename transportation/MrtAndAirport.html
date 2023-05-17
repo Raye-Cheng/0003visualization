@@ -170,23 +170,37 @@
       .style("pointer-events", "none")
       .html(`<img src="assets/img/plane.jpeg" class='icon'/>
     <p class='title'>Comparsion of import and export tonnage </p>
-             <div id='item-c'></div>`);
+             <div id='item-c'></div><div id='item-d'></div>`
+             );
+             
     chart(object);
   }
   //  <p class='item-a'> Free Bikes: ${object.free_bikes}</p>
   //  <p class='item-b'> Empty Docks: ${object.empty_slots}</p>
 
   d3.csv("https://raw.githubusercontent.com/Raye-Cheng/Data/main/Airport_Direct_Tonnage.csv", d3.autoTyep).then(
-    function chart(dataset) {
+    function chart(dataset){
       var myChartEchart = echarts.init(document.getElementById("item-c"));
       var option = {
         title: {
-          text: dataset.name,
+          text: "Comparsion of import and export tonnage" ,
           textStyle: {
             color: "blue",
             fontSize: '0.8em',
             fontWeight: "bold"
           },
+        },
+        tooltip:{
+          trigger:'axis',
+          axisPointer: {
+          type: 'cross',
+          label: {
+          backgroundColor: '#6a7985'
+          }
+        }
+        },
+        legend:{
+          data:dataset
         },
         xAxis: {
           type: "category",

@@ -13,7 +13,7 @@
 
 <script>
   // Set the dimensions and margins of the graph
-  var margin = { top: 30, right: 30, bottom: 70, left: 60 },
+  var margin = { top: 30, right: 30, bottom: 150, left: 100 },
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -43,7 +43,10 @@
     d3.csv("srv_pop.csv", function (data) {
       // X axis
       x.domain(data.map(function (d) { return d.service_group; }));
-      xAxis.transition().duration(1000).call(d3.axisBottom(x));
+      xAxis.transition().duration(1000).call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("transform", "rotate(-40)")
+        .style("text-anchor", "end");
 
       // Add Y axis
       y.domain([0, d3.max(data, function (d) { return +d[selectedVar]; })]);

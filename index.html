@@ -36,18 +36,112 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 
-    <style>
+  <style>
+    .section-container {
+        text-align: right;
+        padding-top: 8%;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 2%;
+        background-color: rgba(127, 255, 212, 0.178);
+        padding-bottom: 8%;
+    }
 
-      .GDPchart-embed {
-          margin-top: 70px;
-          text-align: center;
-          width: 100%;
-          border-left: 2px;
-      }
+    .pg2-container {
+        text-align: left;
+        /* padding-top: 2%; */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0px;
+        /* column-gap: 2%; */
+        background-color: rgba(104, 104, 243, 0.363);
+        padding-bottom: 0;
+    }
 
+    .section-graphics {
+        padding: 0 5%;
+    }
 
-    </style>
+    .pg2-graphics {
+        padding: 0px 0px 0px 120px;
+    }
 
+    .pg2-2-graphics {
+        /* margin-bottom: 1%; */
+        padding: 0px 0px 0px 0px;
+    }
+
+    .map {
+        width: 100%;
+        height: 60vh;
+        border: none;
+    }
+
+    .paragraph-description {
+        background-color: rgba(255, 255, 255, 0.166);
+        text-align: left;
+        padding: 1%;
+    }
+
+    .section-text {
+        position: absolute;
+        right: 5%;
+        left: 70%;
+    }
+
+    .section2-text {
+        position: absolute;
+        text-align: right;
+        right: 10%;
+        left: 60%;
+        margin-top: 35%; 
+    }
+
+    .pg2-text {
+        position: absolute;
+        right: 70%;
+        left: 8%;
+    }
+
+    .paragraph-main,
+    .paragraph-main-scroll {
+        background-color: rgba(255, 255, 255, 0.166);
+        text-align: right;
+        padding: 3%;
+        line-height: 1.5;
+        font-size: medium;
+        font-weight: 400;
+        font-size: 1.5;
+        overflow-y: auto;
+        /* AG: setting the max height to force a scrollbar */
+        max-height: 58vh;
+    }
+
+    .pg2-main {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .pg2-2-main {
+        background-color: rgba(255, 255, 255, 0.166);
+        text-align: right;
+        /* padding: 5%; */
+        line-height: 1.5;
+        font-size: medium;
+        font-weight: 400;
+        font-size: 1.5;
+        overflow-y: visible;
+        /* AG: setting the max height to force a scrollbar */
+        /* max-height: 100px; */
+    }
+
+    h2 {
+        text-transform: none;
+        font-size: 2;
+        margin-bottom: 5px;
+    }
+
+    
+</style>
 
 
 </head>
@@ -175,19 +269,61 @@
 
 
 
-    <!-- ================================ GDP part ==============5.12 update===============yujing===================================== -->
-    <section id="clients" class="clients">
-      <div class="container" data-aos="zoom-in">
-
+    <!-- ================================ GDP part ==============5.13 update===============yujing===================================== -->
+ 
+    <div class="section-container">
+      <div class="section-graphics">
+          <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/13706560">
+              <script src="https://public.flourish.studio/resources/embed.js">
+              </script>
+          </div>
       </div>
-      <div class="GDPchart-embed" data-src="visualisation/354282" data-height="100%">
-          <iframe src='./Singapore_GDP/combine_v1(still_need_debug).html' title='Interactive or visual content' 
-                  frameborder='0' scrolling='no' style='width:50%;height: 800px;' 
-                  sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
-          </iframe>
+      <div class="section-text">
+          <h2>Comparing with other Asian countries</h2>
+
+          <p class="paragraph-main">
+              Here is the text need to be filled.<br>
+              Here is the text need to be filled.<br>
+              Here is the text need to be filled.<br>
+              Here is the text need to be filled.<br>
+              Here is the text need to be filled.<br>
+          </p>
+      </div>
+  </div>
+
+  <div class="pg2-container">
+      <div class="pg2-graphics">
+          <h2>GPD Growth</h2>
+          <p class="pg2-text">
+              Text………………Text………………Text………………Text………………Text………………<br>
+              Text………………Text………………Text………………Text………………Text………………<br>
+              Text………………Text………………Text………………Text………………Text………………<br>
+              Text………………Text………………Text………………Text………………Text………………<br>
+              Text………………Text………………Text………………Text………………Text………………<br>
+          </p>
+      </div>
+      <div class="pg2-main">
+          <iframe frameborder="0" class="map" src="./Singapore_GDP/singapore_gdp.html"></iframe>
       </div>
 
-    </section><!-- End GDP Part -->
+      <div class="pg2-2-graphics" data-src="visualisation/354282" data-height="100%">
+          <iframe frameborder="0" class="map" src="./Singapore_GDP/combine_v2.html"></iframe>
+      </div>
+
+      <div class="section2-text">
+          <h2>GDP by industry</h2>
+
+          <p class="pg2-2-main">
+              Here is the text need to be filled.<br>
+              Here is the text need to be filled.<br>
+              Here is the text need to be filled.<br>
+              Here is the text need to be filled.<br>
+              Here is the text need to be filled.<br>
+          </p>
+      </div>
+
+  </div>
+<!-- End GDP Part -->
 
 
     <!-- ======= Clients Section ======= -->

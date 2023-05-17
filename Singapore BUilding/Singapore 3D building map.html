@@ -9,7 +9,6 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
     
 <style>
-	<style>
     body {
     margin: 0;
     padding: 0;
@@ -120,6 +119,8 @@ item.appendChild(key);
 item.appendChild(value);
 legend.appendChild(item);
 });
+    
+    map.dragPan.enable(); // Enable dragging on the map
     
     map.addControl(new mapboxgl.NavigationControl());
 

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Singapore </title>
+  <!-- leaflet-->
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+  <!-- DeckGL Library -->
+  <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+
+  <!--MapBox 2.10.0-->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+
+  <!--D3.js-->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!--ECharts-->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+  <style>
+    #container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #tooltip {
+      position: absolute;
+      visibility: hidden;
+      z-index: 2;
+      right: 0;
+      top: 0;
+      width: 20%;
+      height: auto;
+      min-height: 100px;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "icon title title"
+        "item-a item-a ."
+        "item-b item-b ."
+        "item-c item-c item-c";
+
+      background-color: rgb(255, 216, 145);
+      border: 1px solid #888;
+    }
+
+    .title {
+      grid-area: title;
+      font-weight: bold;
+      margin: 4px;
+    }
+
+    .item-a {
+      grid-area: item-a;
+      margin: 4px;
+    }
+
+    .item-b {
+      grid-area: item-b;
+      margin: 4px;
+    }
+
+    #item-c {
+      grid-area: item-c;
+      margin: 4px;
+      height: 300px;
+
+    }
+
+    .icon {
+      grid-area: icon;
+      margin: 4px;
+      max-width: 20%;
+      height: auto;
+      place-self: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="tooltip"></div>
+    <div id="map"></div>
+  </div>
+</body>
+
+<script>
+
+  // Set your API key here
+  const API_TOKEN_Mapbox = 'pk.eyJ1IjoicmF5bmUtY2hlbmciLCJhIjoiY2xkYmw5NTZsMDFvdzNxbWk4bDJyMnF3ciJ9.2rdhRXm9_586plkoS8eBlQ';
+  mapboxgl.accessToken = API_TOKEN_Mapbox;
+
+  const INITIAL_VIEW_STATE = {
+    longitude: 103.8198,//Singapore
+    latitude: 1.360270,//Singapore
+    zoom: 11,
+    bearing: 0,
+    pitch: 0,
+  };
+
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/rayne-cheng/clhnrxrqj01p601pn28tw14t9',
+    interactive: true,
+    center: [INITIAL_VIEW_STATE.longitude, INITIAL_VIEW_STATE.latitude],
+    zoom: INITIAL_VIEW_STATE.zoom,
+    bearing: INITIAL_VIEW_STATE.bearing,
+    pitch: INITIAL_VIEW_STATE.pitch
+  });
+
+  const circleLayer = new deck.GreatCircleLayer({
+    id: 'circle-layer',
+    data: [{
+      coordinates: [103.9915, 0.3644],
+      color: [255, 255, 255]
+    }],
+    getRadius: 100, // Radius in meters
+    getFillColor: d => d.color, // Color in RGB
+    pickable: true,
+    onClick: ({ object }) => alert(`Clicked on: ${JSON.stringify(object)}`)
+  });
+
+  map.on('load', () => {
+    map.addLayer({
+      'id': 'circle-layer',
+      'type': 'circle',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [103.9915, 1.3644] // replace with your coordinates
+          }
+        }
+      },
+      'paint': {
+        'circle-radius': 15,
+        'circle-color': '#F71D1D'
+      }
+    });
+
+  });
+
+  function hideTooltip() {
+    d3.select("#tooltip").style("visibility", "hidden");
+  }
+  function showTooltip(info, object) {
+    d3
+      .select("#tooltip")
+      .style("top", info.center.y + 3 + "px")
+      .style("left", info.center.x + "px")
+      .style("visibility", "visible")
+      .style("pointer-events", "none")
+      .html(`<img src="assets/img/plane.jpeg" class='icon'/>
+    <p class='title'>Comparsion of import and export tonnage </p>
+             <div id='item-c'></div><div id='item-d'></div>`
+             );
+             
+    chart(object);
+  }
+  //  <p class='item-a'> Free Bikes: ${object.free_bikes}</p>
+  //  <p class='item-b'> Empty Docks: ${object.empty_slots}</p>
+
+  d3.csv("https://raw.githubusercontent.com/Raye-Cheng/Data/main/Airport_Direct_Tonnage.csv", d3.autoTyep).then(
+    function chart(dataset){
+      var myChartEchart = echarts.init(document.getElementById("item-c"));
+      var option = {
+        title: {
+          text: "Comparsion of import and export tonnage" ,
+          textStyle: {
+            color: "blue",
+            fontSize: '0.8em',
+            fontWeight: "bold"
+          },
+        },
+        tooltip:{
+          trigger:'axis',
+          axisPointer: {
+          type: 'cross',
+          label: {
+          backgroundColor: '#6a7985'
+          }
+        }
+        },
+        legend:{
+          data:dataset
+        },
+        xAxis: {
+          type: "category",
+          data: ['Imports Of Direct Tonnage (Tonne)', 'Exports Of Direct Tonnage (Tonne)'],
+          axisLabel: {
+            interval: 0,
+            rotate: 30, //If the label names are too long you can manage this by rotating the label.
+            fontSize: 10
+          }
+        },
+
+        yAxis: {
+          type: "value",
+          min: 0,
+          max: 2000000,
+          nameLocation: "center",
+          nameTextStyle: {
+            align: "center"
+          },
+        },
+        dataset: [
+          {
+            source: dataset
+          }
+        ],
+        series: [
+          {
+            type: 'line',
+            stack: Total,
+            emphasis: {
+              focus: 'series'
+            },
+            data: [
+              {
+                value: dataset.free_bikes,
+                itemStyle: { color: 'rgb(' + colorScaleFunction(dataset.free_bikes) + ')' }
+              },
+              {
+                value: dataset.empty_slots,
+                itemStyle: { color: 'rgb(' + colorScaleFunction(dataset.empty_slots) + ')' }
+              }
+            ]
+          }
+        ]
+      }
+      myChartEchart.setOption(option);
+    }
+  )
+
+</script>
+
+</html>

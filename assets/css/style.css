@@ -999,7 +999,7 @@ section {
 }
 
 .counts .image {
-  background: url("../img/counts-img.jpg") center center no-repeat;
+  background: url("../img/light-switch.gif") center center no-repeat;
   background-size: cover;
   min-height: 400px;
 }
@@ -1554,4 +1554,9 @@ section {
   text-align: center;
   font-size: 13px;
   color: #fff;
+}
+
+#portrait{
+  display: flex; 
+  flex-wrap: wrap;
 }

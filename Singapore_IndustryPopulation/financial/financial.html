@@ -109,12 +109,9 @@ map.touchZoomRotate.disableRotation();
  map.on('load', function() {
     
 
-                  d3.json("https://api.tfl.gov.uk/bikepoint", function(BikeData) {
+                  d3.json("", function() {
 
-                   
-
-
-                      var myGeojson = {};
+                    var myGeojson = {};
                     myGeojson.type = 'FeatureCollection';
                     myGeojson.features = [];
 
@@ -124,7 +121,7 @@ map.touchZoomRotate.disableRotation();
                             "type": "Feature",
                             "geometry": {
                                 "type": "Point",
-                                "coordinates": d.coords
+                                "coordinates": [d.coords[1], d.coords[0]]
                             },
                             "properties": {
                                 "Name": d.name,

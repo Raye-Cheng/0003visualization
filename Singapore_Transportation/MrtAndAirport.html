@@ -1,164 +1,648 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="height: 100%">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Singapore </title>
-  <!-- leaflet-->
+    <title>Chinese Diaspora</title>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+    <!-- DeckGL Library -->
+    <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
 
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <!--MapBox 2.10.0-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
 
-  <!-- DeckGL Library -->
-  <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <!--D3.js-->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #fff;
+    }
 
-  <!--MapBox 2.10.0-->
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
-
-  <!--D3.js-->
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <!--ECharts-->
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
-  <style>
     #container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+        top: 30px;
+        width: 40%;
+        height: 93%;
+        z-index: 0;
+        position: absolute;
+        /* background: #000; */
     }
 
-    #map {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
+    #student {
+        right: auto;
+        width: auto;
+        height: 60%;
+        display: block;
+        z-index: 2;
+        background: #F8F8F8;
+        position: relative;
+        /* overflow:auto; */
     }
+    #student2 {
+        right: auto;
+        width: auto;
+        height: 90%;
+        display: block;
+        z-index: 2;
+        background: #F8F8F8;
+        position: relative;
+        /* overflow:auto; */
+    }
+
+    #text-wrap student {
+        width: 50%;
+        height: 93%;
+        left: 940px;
+        top: 90px;
+        position: absolute;
+        z-index: 99;
+    }
+    #text-wrap student2 {
+        width: 50%;
+        height: 93%;
+        left: 940px;
+        top: 90px;
+        position: absolute;
+        z-index: 99;
+    }
+
+
+    #pagecontent {
+        width: 100%;
+        height: 1%;
+        z-index: 1;
+    }
+
+    #Options {
+        left: 940px;
+        top: 30px;
+        position: relative;
+        z-index: 1;
+    }
+
+
+    #text-wrap {
+        top: 30px;
+        right: 40px;
+        position: absolute;
+        float: right;
+        width: 50%;
+        height: 95%;
+        color: #000;
+        background-color: #fff;
+        overflow: auto;
+        z-index: 2;
+    }
+
+    #text-wrap p {
+        border-style: solid;
+        border-color: transparent transparent transparent #003866;
+        border-width: 0 4px 0 8px;
+        color: #000;
+        background-color: #F1F1F1;
+        z-index: 2;
+        text-align: justify;
+        padding: 10px;
+    }
+
+
+    /* #legend {
+  left:30px; 
+  top:600px;
+  width: 500px;
+  height: 100px; 
+  z-index: 1;
+  position: relative;
+  background-color: #E0E0E0;
+  opacity: 0.8;
+} */
+
+    #legend img {
+        left: 15px;
+        top: 620px;
+        width: 15%;
+        /* height: 4%;  */
+        z-index: 2;
+        position: relative;
+        opacity: 10
+    }
+
+    /* #legend p {
+  float: right;
+  width: 10px;
+  height: 100%; 
+  z-index: 1;
+  color: #000;
+  position: relative;
+  opacity: 0.8;
+} */
+
 
     #tooltip {
-      position: absolute;
-      visibility: hidden;
-      z-index: 2;
-      right: 0;
-      top: 0;
-      width: 20%;
-      height: auto;
-      min-height: 100px;
-      display: grid;
-      grid-template-columns: auto auto auto;
-      grid-template-rows: auto;
-      grid-template-areas:
-        "icon title title"
-        "item-a item-a ."
-        "item-b item-b ."
-        "item-c item-c item-c";
+        position: absolute;
+        visibility: hidden;
+        z-index: 2;
+        right: 0;
+        top: 0;
+        width: 30%;
+        height: auto;
+        min-height: 100px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "icon title title"
+        ;
 
-      background-color: rgb(255, 216, 145);
-      border: 1px solid #888;
+        background-color: rgba(201, 252, 255, 0.597);
+        border: 1px solid #888;
     }
 
     .title {
-      grid-area: title;
-      font-weight: bold;
-      margin: 4px;
+        grid-area: title;
+        font-weight: bold;
+        margin: 1px;
     }
 
     .item-a {
-      grid-area: item-a;
-      margin: 4px;
+        grid-area: item-a;
+        margin: 4px;
     }
 
     .item-b {
-      grid-area: item-b;
-      margin: 4px;
+        grid-area: item-b;
+        margin: 4px;
     }
 
     #item-c {
-      grid-area: item-c;
-      margin: 4px;
-      height: 300px;
+        grid-area: item-c;
+        margin: 4px;
+        height: 300px;
 
     }
 
     .icon {
-      grid-area: icon;
-      margin: 4px;
-      max-width: 20%;
-      height: auto;
-      place-self: left;
+        grid-area: icon;
+        margin: 4px;
+        max-width: 80%;
+        height: auto;
+        place-self: left;
     }
-  </style>
-</head>
+</style>
 
 <body>
-  <div id="container">
-    <div id="tooltip"></div>
-    <div id="map"></div>
-  </div>
-</body>
 
-<script>
+    <div id="container">
+        <div id="tooltip"></div>
+        <div id="map"></div>
+      </div>
 
-  // Set your API key here
-  const API_TOKEN_Mapbox = 'pk.eyJ1IjoicmF5bmUtY2hlbmciLCJhIjoiY2xkYmw5NTZsMDFvdzNxbWk4bDJyMnF3ciJ9.2rdhRXm9_586plkoS8eBlQ';
-  mapboxgl.accessToken = API_TOKEN_Mapbox;
+    <!-- option box -->
+    <div id="pagecontent" style="position:relative; ">
+        <p><select id="Options" style="position: relative;">
+                <option value="mapOption">Map</option>
+                <option value="barOption">Bar</option>
+            </select>
+        </p>
+    </div>
 
-  const INITIAL_VIEW_STATE = {
-    longitude: 103.8198,//Singapore
-    latitude: 1.360270,//Singapore
-    zoom: 11,
-    bearing: 0,
-    pitch: 0,
-  };
 
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/rayne-cheng/clhnrxrqj01p601pn28tw14t9',
-    interactive: true,
-    center: [INITIAL_VIEW_STATE.longitude, INITIAL_VIEW_STATE.latitude],
-    zoom: INITIAL_VIEW_STATE.zoom,
-    bearing: INITIAL_VIEW_STATE.bearing,
-    pitch: INITIAL_VIEW_STATE.pitch
-  });
+    <!-- map div -->
+    <div id="map"> </div>
 
-  const circleLayer = new deck.GreatCircleLayer({
-    id: 'circle-layer',
-    data: [{
-      coordinates: [103.9915, 0.3644],
-      color: [255, 255, 255]
-    }],
-    getRadius: 100, // Radius in meters
-    getFillColor: d => d.color, // Color in RGB
-    pickable: true,
-    onClick: ({ object }) => alert(`Clicked on: ${JSON.stringify(object)}`)
-  });
+    <!-- sided text block -->
+    <div id="text-wrap">
+        <p>This map is a global overview of contemporary Chinese diaspora during 2010–2011. The darker the blue, the
+            more Chinese immigrants there are in the country. The map also exhibits the multiple cities as a destination
+            of immigrants, which are represented by the diamond icons, the larger the size, the higher the immigrant
+            population of the city. There is an option box on the top right corner can convert the map to a bar chart
+            with the ranked top 20 countries of Chinese diaspora.</p>
+            <div id="student"></div>
+        <p>In this context, students, as one of the main sources of new immigrants, is inextricably tied to the rapid
+            economic development of China, as individual family incomes gradually increase, more and more families can
+            afford to study abroad. This is attractive to Chinese households because many believe that an international
+            degree can help obtain better jobs, while also gaining opportunities to learn a foreign language and expand
+            horizons. Some go abroad as they do not adapt to the difficult domestic education system, and there is also
+            a lack of world first-class universities. Many families also regard studying abroad as a path to
+            immigration. The graph below is the number of overseas Chinese students in higher education in 2019.</p>
 
-  map.on('load', () => {
-    map.addLayer({
-      'id': 'circle-layer',
-      'type': 'circle',
-      'source': {
-        'type': 'geojson',
-        'data': {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [103.9925, 1.3604] // replace with your coordinates
-          }
+            <div id="student2"></div>
+            <p>By comparing the bar charts of contemporary Chinese diaspora and overseas student population, the order of
+                top destination countries is ranked differently. Traditional immigrants’ most popular destinations tend to
+                be Asian countries, while students tend to choose the most developed countries. This corresponds to the
+                background stated previously, universities in developed countries can provide more recognized international
+                degrees, more comprehensive academic system and better experience, students with a tendency to immigrate are
+                more likely to stay.</p>
+    </div>
+
+
+
+    <script type="text/javascript">
+        var dom = document.getElementById('student');
+        var myChart1 = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option = {
+            // 
+            textStyle: {
+                fontcolor: 'white',
+            },
+            color: [
+                '#f7ebe8',
+                '#f9dad3',
+                '#fad2c8',
+                '#fac1b4',
+                '#fab8aa',
+                '#f9a797',
+                '#f89e8e',
+                '#f79685',
+                '#f48473',
+                '#f27a6b',
+                '#f17162',
+                '#ec5d52',
+                '#e84642',
+                '#e5383b',
+                '#CF292B',
+                '#BA181B'
+            ],
+            title: {
+                text: 'Top Average annual air cargo volume by country/region of origin(2012-2022)',
+                x: 'left',
+                textStyle: {
+                    fontSize: 15,
+                    color: '#A97EF7'
+                },
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            // legend: {
+            //     x: 'center',
+            //     y: 'bottom',
+            //     fontsize: 3,
+            // },
+
+            toolbox: {
+                show: false,
+                feature: {
+                    mark: { show: true },
+                    // dataView : {show: true, readOnly: false},
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '25%',
+                                width: '50%',
+                                funnelAlign: 'left',
+                                max: 1548
+                            }
+                        }
+                    },
+                    // restore : {show: true},
+                    // saveAsImage : {show: true}
+                }
+            },
+            calculable: true,
+            series: [
+                {
+                    name: 'count of flights',
+                    type: 'pie',
+                    radius: [50, 150],
+                    center: ['25%', 200],
+                    roseType: 'area',
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                textStyle: {
+                                    color: '#A97EF7',
+                                    fontSize: 14,
+                                    fontWeight: 'bolder'
+                                }
+                            },
+
+                        }
+                    },
+                    data: [
+                        { name: "	France	", value: 8895.74 },
+                        { name: "	Philippines	", value: 12204.04 },
+                        { name: "	Malaysia	", value: 16192.69 },
+                        { name: "	NorthAmerica	", value: 19398.15 },
+                        { name: "	Germany	", value: 19604.86 },
+                        { name: "	Vietnam	", value: 23422.76 },
+                        { name: "	UnitedKingdom	", value: 46298.76 },
+                        { name: "	Indonesia	", value: 49612.37 },
+                        { name: "	MiddleEast	", value: 49650.41 },
+                        { name: "	Japan	", value: 75065.36 },
+                        { name: "	Other countries/regions in Europe	", value: 92553.90 },
+                        { name: "	Oceania	", value: 106311.19 },
+                        { name: "	HongKong	", value: 131897.97 },
+                        { name: "	Europe	", value: 145528.68 },
+                        { name: "	MainlandChina	", value: 165264.85 },
+                        { name: "	Other countries/regions in Asia	", value: 208575.03 },
+                    ]
+                }
+            ]
+        };
+
+
+        if (option && typeof option === 'object') {
+            myChart1.setOption(option);
         }
-      },
-      'paint': {
-        'circle-radius': 15,
-        'circle-color': '#F71D1D'
-      }
+        window.addEventListener('resize', myChart1.resize);
+    </script>
+
+<script type="text/javascript">
+    var dom = document.getElementById('student2');
+    var myChart2 = echarts.init(dom, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
     });
+    var app = {};
 
-  });
+// Specify configurations and data graphs 
+var option = {
+    // 
+    textStyle: {
+        fontcolor:'#F7C37E',
+      },
+    color: [ 
+    '#e8f7e8',
+    '#d3f9d3',
+    '#c8fad2',
+    '#b4fac1',
+    '#aafab8',
+    '#97f9a7',
+    '#8ef89e',
+    '#85f796',
+    '#73f484',
+    '#6bf27a',
+    '#62f171',
+    '#52ec5d',
+    '#42e846',
+    '#3be538',
+    '#2BCF29',
+    '#1BBA18'
+    
+],
+title : {
+text: 'Top Average annual air cargo volume by country/region of destination(2012-2022)',
+x:'left',
+textStyle:{
+    fontSize: 15,
+    color: '#F7C37E'
+},
+},
+tooltip : {
+trigger: 'item',
+formatter: "{a} <br/>{b} : {c} ({d}%)"
+},
+// legend: {
+//     x : 'center',
+//     y : 'bottom',
+//     fontsize: 10,
+// },
 
+toolbox: {
+show : false,
+feature : {
+    mark : {show: true},
+    // dataView : {show: true, readOnly: false},
+    magicType : {
+        show: true,
+        type: ['pie', 'funnel'],
+        option: {
+            funnel: {
+                x: '25%',
+                width: '50%',
+                funnelAlign: 'left',
+                max: 1548
+            }
+        }
+    },
+    // restore : {show: true},
+    // saveAsImage : {show: true}
+}
+},
+calculable : true,
+series : [
+{
+    name:'count of flights',
+    type:'pie',
+    radius : [50, 150],
+    center : ['25%', 200],
+    roseType : 'area',
+    itemStyle: {
+        normal: {
+            label: {
+                textStyle: {
+                  color:'#F7C37E',
+                    fontSize: 14,
+                    fontWeight:'bolder'
+                }
+            },
 
+        }
+    },
+    data:[
+        {name:"	France	",value:	9049.87   	},
+        {name:"	Philippines	",value:	18628.85  	},
+        {name:"	Vietnam	",value:	20881.65   	},
+        {name:"	Germany	",value:	21020.51   	},
+        {name:"	Malaysia	",value:	26356.71   	},
+        {name:"	NorthAmerica	",value:	28054.81   	},
+        {name:"	UnitedKingdom	",value:	31541.32    	},
+        {name:"	MiddleEast	",value:	42415.38   	},
+        {name:"	Thailand	",value:	49126.19   	},
+        {name:"	Other countries/regions in Europe	",value:	51466.89  	},
+        {name:"	Japan	",value:	61067.82   	},
+        {name:"	SouthAsia	",value:	69792.71   	},
+        {name:"	 HongKong	",value:	79270.54   	},
+        {name:"	MainlandChina	",value:	90053.46   	},
+        {name:"	Oceania	",value:	128140.73    	},
+        {name:"	Other countries/regions in Asia	",value:	393704.91    	},
+    ]
+}
+]
+};
+
+// Use just the specified configurations and data charts. 
+    if (option && typeof option === 'object') {
+        myChart2.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart2.resize);
 </script>
 
+    <script type="text/javascript">
+
+        var dom = document.getElementById("container");
+
+        const API_TOKEN_Mapbox = 'pk.eyJ1IjoicmF5bmUtY2hlbmciLCJhIjoiY2xpMWRjcTNzMGc2eDNqbzRwaHZnYjQ3NiJ9.ogilsbEaVxHdkmQuNLFn4A';
+        mapboxgl.accessToken = API_TOKEN_Mapbox;
+
+
+        const INITIAL_VIEW_STATE = {
+            longitude: 103.8198,//Singapore
+            latitude: 1.360270,//Singapore
+            zoom: 10,
+            bearing: 0,
+            pitch: 0,
+        };
+        const map = new mapboxgl.Map({
+            container: dom,
+            style: 'mapbox://styles/rayne-cheng/clhnrxrqj01p601pn28tw14t9',
+            interactive: true,
+            center: [INITIAL_VIEW_STATE.longitude, INITIAL_VIEW_STATE.latitude],
+            zoom: INITIAL_VIEW_STATE.zoom,
+            bearing: INITIAL_VIEW_STATE.bearing,
+            pitch: INITIAL_VIEW_STATE.pitch
+        });
+
+        map.on('load', () => {
+            const firstLabelLayerId = map.getStyle().layers.find(layer => layer.type === 'symbol').id;
+            map.addLayer({
+                'id': '3d-buildings',
+                'source': 'composite',
+                'source-layer': 'building',
+                'filter': ['==', 'extrude', 'true'],
+                'type': 'fill-extrusion',
+                'minzoom': 15,
+                'paint': {
+                    'fill-extrusion-color': '#aaa',
+                    'fill-extrusion-height': ["get", "height"],
+                    'fill-extrusion-base': ["get", "min_height"],
+                    'fill-extrusion-opacity': 0.0
+                }
+            },
+                firstLabelLayerId
+            );
+            map.addLayer({
+                id: 'circle1',
+                type: 'circle',
+                source: {
+                    type: 'geojson',
+                    data: {
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [103.98870849609375, 1.3567436933517456]
+                        }
+                    }
+                },
+                paint: {
+                    'circle-radius': 10,
+                    'circle-color': 'blue',
+                    'circle-opacity': 0.8
+                }
+            });
+
+            map.addLayer({
+                id: 'circle2',
+                type: 'circle',
+                source: {
+                    type: 'geojson',
+                    data: {
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            "coordinates": [103.8659896850586, 1.4194509983062744]
+                        }
+                    }
+                },
+                paint: {
+                    'circle-radius': 10,
+                    'circle-color': 'red',
+                    'circle-opacity': 0.8
+                }
+            });
+
+
+            map.on('mouseenter', 'circle1', function (event) {
+                map.getCanvas().style.cursor = 'pointer';
+                showTooltip1(event)
+            });
+
+            map.on('mouseleave', 'circle1', function (event) {
+                map.getCanvas().style.cursor = 'grab';
+                hideTooltip();
+            });
+        });
+
+        map.on('mouseenter', 'circle2', function (event) {
+            map.getCanvas().style.cursor = 'pointer';
+            showTooltip2(event)
+        });
+
+        map.on('mouseleave', 'circle2', function () {
+            map.getCanvas().style.cursor = 'grab';
+            hideTooltip();
+        });
+
+        function showTooltip1(event) {
+            const info = {
+                center: event.point,
+            };
+
+            const object = event.features[0].properties;
+
+            d3.select("#tooltip")
+                .style("top", info.center.y - 3 + "px")
+                .style("right", info.center.x - 300 + "px")
+                .style("visibility", "visible")
+                .style("pointer-events", "none")
+                .html(`<img src="/assets/img/Changi_airport.jpeg" class='icon'/>
+    <p class='title'>Singapore's biggest airport </p>
+    `);
+
+
+
+        }
+        function showTooltip2(event) {
+            const info = {
+                center: event.point,
+            };
+
+            const object = event.features[0].properties;
+
+            d3.select("#tooltip")
+                .style("top", info.center.y + 3 + "px")
+                .style("left", info.center.x + "px")
+                .style("visibility", "visible")
+                .style("pointer-events", "none")
+                .html(`<img src="/assets/img/Seletar_airport.jpeg" class='icon'/>
+    <p class='title'>Singapore's restorative airport </p>
+    `);
+
+
+        }
+        function hideTooltip() {
+            d3.select("#tooltip").style("visibility", "hidden");
+        }
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
 </html>
+
+<!-- Page framework referece:
+The framework is inspired by Apache Echarts examples in https://echarts.apache.org/zh/index.html -->

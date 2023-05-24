@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Investment From Different Regions</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+
+<script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
+
+
+<style>
+
+    body { margin: 0; padding: 0; }
+
+    
+    #title {
+        position: absolute;
+        background-color: #fff;
+        box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+        border-radius: 3px;
+        padding: 15px;
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    #title h2 {
+        line-height: 24px;
+        margin: 0;
+    }
+
+    #title p.credit {
+       margin: 10px 0 0 0;
+       padding: 0;
+    }
+    
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; };
+    
+</style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+    
+    <div id="title">
+        <h2>Investment Source Ma</h2>
+         <p class="credit">Data: <a href="https://tablebuilder.singstat.gov.sg/table/TS/M060311#!">Investment to Singapore from different regions.</a>.</p>
+    </div> 
+
+<script>
+    
+
+	mapboxgl.accessToken = 'pk.eyJ1IjoiaHVzaXlhIiwiYSI6ImNsZHhpeHJodzBpMWgzbnBoMnN4dXliY28ifQ.LiFbhAGXvlGKmU8aXtX_8g';
+
+        // Load a new map in the 'map' HTML div
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/husiya/clhz51hwd027701r0eeva57h0',
+            center: [-0.1, 51.5], // starting position [lng, lat]
+            zoom: 12 // starting zoom
+        });
+    
+map.addControl(new mapboxgl.NavigationControl()); //Adds zoom control
+    
+    
+// disable map rotation using right click + drag
+map.dragRotate.disable();
+ 
+// disable map rotation using touch rotation gesture
+map.touchZoomRotate.disableRotation();
+    
+    
+var investmentData = [
+{ "name": "Brunei Darussalam", "coords": [4.4137155, 114.5653908], "value": -41.1},
+	{ "name": "Mainland China", "coords": [19.1153424, 72.9085796], "value": 5487.20},
+    { "name": "Hong Kong", "coords": [22.2793278, 114.1628131], "value": -3559.80},
+    { "name": "India", "coords": [22.3511148, 78.6677428], "value": 1880.80},
+    { "name": "Indonesia", "coords": [-2.4833826, 117.8902853], "value": 554.8},
+    { "name": "Israel", "coords": [30.8124247, 34.8594762], "value": -1660.90},
+    { "name": "Japan", "coords": [36.5748441, 139.2394179], "value": 2466.60},
+    { "name": "Republic Of Korea", "coords": [36.638392, 127.6961188], "value": 1804.40},
+    { "name": "Malaysia", "coords": [4.5693754, 102.2656823], "value": 2694.60},
+    { "name": "Myanmar", "coords": [17.1750495, 95.9999652], "value": 40.7},
+    { "name": "Philippines", "coords": [12.7503486, 122.7312101], "value": 1153.80},
+    { "name": "Taiwan", "coords": [23.9739374, 120.9820179], "value": 1711},
+    { "name": "Thailand", "coords": [14.8971921, 100.83273], "value": -205.4},
+    { "name": "Vietnam", "coords": [15.9266657, 107.9650855], "value": -24.4},
+    { "name": "Austria", "coords": [47.59397, 14.12456], "value": -163.8},
+    { "name": "Belgium", "coords": [50.6402809, 4.6667145], "value": -261.3},
+    { "name": "Denmark", "coords": [55.670249, 10.3333283], "value": 68},
+    { "name": "Finland", "coords": [63.2467777, 25.9209164], "value": 164.1},
+    { "name": "France", "coords": [46.603354, 1.8883335], "value": 81.7},
+    { "name": "Germany", "coords": [51.1638175, 10.4478313], "value": -1173.60},
+    { "name": "Ireland", "coords": [52.865196, -7.9794599], "value": 10848.80},
+    { "name": "Luxembourg", "coords": [49.8158683, 6.1296751], "value": 412.1},
+    { "name": "Netherlands", "coords": [52.2434979, 5.6343227], "value": 7454},
+    { "name": "Norway", "coords": [61.1529386, 8.7876653], "value": 1153.60},
+    { "name": "Switzerland", "coords": [46.7985624, 8.2319736], "value": 2132.70},
+    { "name": "United Kingdom", "coords": [54.7023545, -3.2765753], "value": 2500.80},
+    { "name": "United States", "coords": [39.7837304, -100.445882], "value": 24449},
+    { "name": "Canada", "coords": [61.0666922, -107.991707], "value": 1076.30},
+    { "name": "Australia", "coords": [-24.7761086, 134.755], "value": 1089.90},
+    { "name": "New Zealand", "coords": [-41.5000831, 172.8344077], "value": -161.1}
+];
+
+
+// Create a new Mapbox tile layer using the mapboxgl library
+var mapboxTileLayer = new mapboxgl.TileLayer({
+    source: 'mapbox://mapbox.mapbox-streets-v8', // Use the desired Mapbox tileset source
+    tileSize: 512, // Tile size (default: 512)
+    maxzoom: 18 // Maximum zoom level (default: 18)
+});
+
+// Add the Mapbox tile layer to the map
+map.addLayer(mapboxTileLayer);
+
+
+for (var i = 0; i < investmentData.length; i++) {
+    var investment = investmentData[i];
+    var marker = L.circleMarker(investment.coords, {
+        radius: Math.abs(investment.value) / 100,  // 使用绝对值除以100作为圆点的半径
+        color: investment.value >= 0 ? 'green' : 'red',  // 根据正负值设置颜色
+        fillColor: 'blue',
+        fillOpacity: 0.5
+    }).addTo(mymap);
+
+    marker.bindPopup(investment.name + '<br>Investment: ' + investment.value);
+}
+
+    
+    // Add your code here to process and visualize the investment data
+    createCircles(data); // Call the function to create circles based on the investment data
+
+  // Iterate over the investment data and create map features
+  data.forEach(item => {
+    const { name, value, coordinates } = item;
+
+    const feature = {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates,
+      },
+      properties: {
+        name,
+        value,
+      },
+    };
+
+    geojson.features.push(feature);
+  });
+
+  // Add the investment data as a source
+  map.addSource('investments', {
+    type: 'geojson',
+    data: geojson,
+  });
+
+  // Add a layer to display the circles based on investment values
+  map.addLayer({
+    id: 'investmentCircles',
+    type: 'circle',
+    source: 'investments',
+    paint: {
+      'circle-color': '#ff0000', // Change the circle color as desired
+      'circle-opacity': 0.6,
+      'circle-stroke-width': 0.1,
+      'circle-stroke-color': '#999',
+      'circle-stroke-opacity': 1,
+      'circle-radius': ['sqrt', ['abs', ['get', 'value']]], // Adjust the radius calculation as needed
+    },
+  });
+
+  // Create a popup to show investment details
+  const popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
+
+  // Show the popup when hovering over a circle
+  map.on('mouseenter', 'investmentCircles', e => {
+    map.getCanvas().style.cursor = 'pointer';
+
+    const { name, value } = e.features[0].properties;
+    const coordinates = e.features[0].geometry.coordinates.slice();
+
+    const html = `<h2>${name}</h2><p>Investment: ${value}</p>`;
+
+    popup.setLngLat(coordinates).setHTML(html).addTo(map);
+  });
+
+  // Hide the popup when not hovering over a circle
+  map.on('mouseleave', 'investmentCircles', () => {
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+  });
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,17 +1,12 @@
 /**
-* Template Name: Gp
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
 * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #444444;
+  color: #ffffff;
+  background-color: #1E2D3B;
 }
 
 a {
@@ -1559,4 +1554,9 @@ section {
 #portrait{
   display: flex; 
   flex-wrap: wrap;
+}
+
+#transportation {
+
+background-color: #72ABE0;
 }

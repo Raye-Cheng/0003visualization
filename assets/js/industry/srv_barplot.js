@@ -61,7 +61,21 @@ svg.selectAll("mycircle")
   .attr("cx", function (d) { return x(d.year2000); })
   .attr("cy", function (d) { return y(d.service_group); })
   .attr("r", "6")
-  .style("fill", "#69b3a2");
+  .style("fill", "#69b3a2")
+  .on("mouseover", function (event, d) {
+    d3.select(this).attr("r", "8").style("fill", "gray");
+    svg.append("text")
+      .attr("class", "tooltip")
+      .attr("x", x(d.year2000) + 10)
+      .attr("y", y(d.service_group) - 10)
+      .text(d.year2000)
+      .attr("fill", "#000")
+      .attr("font-size", "12px");
+  })
+  .on("mouseout", function (event, d) {
+    d3.select(this).attr("r", "6").style("fill", "#69b3a2");
+    svg.select(".tooltip").remove();
+  });
 
 // Circles of variable 2
 svg.selectAll("mycircle")
@@ -70,7 +84,21 @@ svg.selectAll("mycircle")
   .attr("cx", function (d) { return x(d.year2022); })
   .attr("cy", function (d) { return y(d.service_group); })
   .attr("r", "6")
-  .style("fill", "#4C4082");
+  .style("fill", "#4C4082")
+  .on("mouseover", function (event, d) {
+    d3.select(this).attr("r", "8").style("fill", "gray");
+    svg.append("text")
+      .attr("class", "tooltip")
+      .attr("x", x(d.year2022) + 10)
+      .attr("y", y(d.service_group) - 10)
+      .text(d.year2022)
+      .attr("fill", "#000")
+      .attr("font-size", "12px");
+  })
+  .on("mouseout", function (event, d) {
+    d3.select(this).attr("r", "6").style("fill", "#4C4082");
+    svg.select(".tooltip").remove();
+  });
 
 // Add labels to show the means of different circles
 
@@ -101,4 +129,3 @@ svg.append("text")
   .text("Year 2022")
   .attr("fill", "#000")
   .attr("font-size", "12px");
-

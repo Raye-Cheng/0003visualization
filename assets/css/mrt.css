@@ -3,7 +3,7 @@ body {
     height: 100%;
     margin: 0;
     overflow: hidden;
-    background: #fff;
+    background: #9dcfcf42;
 }
 
 #container {
@@ -15,13 +15,14 @@ body {
 }
 
 #trade {
+    background-color: #9dcfcf00;
     padding-left:30px;
     right: auto;
     width: auto;
     height: 60%;
     display: block;
     z-index: 2;
-    background: #F8F8F8;
+    /* background: #F8F8F8; */
     position: relative;
     /* overflow:auto; */
 }
@@ -32,12 +33,14 @@ body {
     height: 60%;
     display: block;
     z-index: 2;
-    background: #F8F8F8;
+    /* background: #f8f8f800; */
     position: relative;
     /* overflow:auto; */
 }
 
 #text-wrap trade {
+    background-color: #ffffff00;
+
     width: 30%;
     height: 93%;
     left: 940px;
@@ -56,6 +59,8 @@ body {
 
 
 #pagecontent {
+    background-color: #9dcfcf00;
+
     width: 100%;
     height: 1%;
     z-index: 1;
@@ -74,20 +79,22 @@ body {
     right: 40px;
     position: absolute;
     float: right;
-    width: 40%;
+    width: 35%;
     height: 95%;
     color: #000;
-    background-color: #fff;
+    background-color: #9dcfcf00;
+    ;
     overflow: auto;
     z-index: 2;
 }
 
 #text-wrap p {
     border-style: solid;
-    border-color: transparent transparent transparent #003866;
+    /* border-color: transparent transparent transparent #003866; */
     border-width: 0 4px 0 8px;
-    color: #000;
-    background-color: #F1F1F1;
+    /* color: #000; */
+    background-color: #9dcfcf00;
+    ;
     z-index: 2;
     text-align: justify;
     padding: 10px;
@@ -121,7 +128,7 @@ body {
         "icon title title"
     ;
 
-    background-color: rgba(201, 252, 255, 0.597);
+    background-color: rgba(201, 252, 255, 0);
     border: 1px solid #888;
 }
 

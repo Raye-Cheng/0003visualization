@@ -78,6 +78,8 @@
           label: {
             formatter: '{b}: {@[' + dimension + ']} ({d}%)'
           },
+          textStyle: {
+            color: "#9DCFCF"},
           encode: {
             value: dimension,
             tooltip: dimension

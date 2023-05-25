@@ -8,7 +8,7 @@ body {
 
 #container {
     top: 30px;
-    width: 70%;
+    width: 60%;
     height: 93%;
     z-index: 0;
     position: absolute;
@@ -74,7 +74,7 @@ body {
     right: 40px;
     position: absolute;
     float: right;
-    width: 50%;
+    width: 40%;
     height: 95%;
     color: #000;
     background-color: #fff;

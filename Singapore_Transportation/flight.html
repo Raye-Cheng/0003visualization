@@ -4,10 +4,10 @@
   <script src="//unpkg.com/d3-dsv"></script>
   <script src="//unpkg.com/index-array-by"></script>
   <script src="//unpkg.com/d3"></script>
-  <script src="/assets/js/transportation/three.js"></script>
+  <script src="js/three.js""></script>
   <script src="//unpkg.com/globe.gl"></script>
   <!--<script src="../../dist/globe.gl.js"></script>-->
-  <link rel="stylesheet" href="/assets/css/transportation/flight.css">
+  <link rel="stylesheet" href="css/flight.css">
 </head>
 
 
@@ -76,7 +76,7 @@
       .showGlobe(true)
       .showAtmosphere(true)
       .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
-      .globeImageUrl('/assets/img/night_land.jpg')
+      .globeImageUrl('img/night_land.jpg')
       
       .pointOfView({ lat: 1.3521, lng: 103.8198, altitude: 2 }) // aim at continental singapore 
 
@@ -127,7 +127,7 @@
 
       const myGlobe = Globe()
       (document.getElementById('globeViz2'))
-      .globeImageUrl('/assets/img/night_land.jpg')
+      .globeImageUrl('img/night_land.jpg')
         .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
         .lineHoverPrecision(0)
         .polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'CH'))

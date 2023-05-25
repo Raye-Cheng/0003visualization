@@ -4,7 +4,7 @@
   <script src="//unpkg.com/d3-dsv"></script>
   <script src="//unpkg.com/index-array-by"></script>
   <script src="//unpkg.com/d3"></script>
-  <script src="/assets/js/three.js"></script>
+  <script src="/assets/js/transportation/three.js"></script>
   <script src="//unpkg.com/globe.gl"></script>
   <!--<script src="../../dist/globe.gl.js"></script>-->
 </head>
@@ -64,9 +64,6 @@
   const COUNTRY = 'Singapore';
   const OPACITY = 0.3;
 
-  // load data
-  // const scene = new THREE.Scene();
-  // const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000,filmOffset=1000 );
   const airportParse = ([airportId, name, city, country, iata, icao, lat, lng, alt, timezone, dst, tz, type, source]) => ({ airportId, name, city, country, iata, icao, lat, lng, alt, timezone, dst, tz, type, source });
   const routeParse = ([airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment]) => ({ airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment});
   const colorScale = d3.scaleSequentialSqrt(d3.interpolateRgb('#00ff0000','#00ff0000')); 

@@ -15,7 +15,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 0px;
     /* column-gap: 2%; */
-    background-color:#3E5D7A;
+    background-color:#293E51;
     padding-bottom: 0;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .pg2-graphics {
-    padding: 30px 0px 30px 120px;
+    padding: 30px 0px 3px 120px;
 }
 
 .pg2-2-graphics {

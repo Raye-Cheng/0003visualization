@@ -35,6 +35,7 @@ svg.append("g")
   .attr("transform", `translate(0, ${height})`)
   .call(d3.axisBottom(x));
 
+
 // Y axis
 const y = d3.scaleBand()
   .range([0, height])
@@ -51,7 +52,7 @@ svg.selectAll("myline")
   .attr("x2", function (d) { return x(d.year2022); })
   .attr("y1", function (d) { return y(d.service_group); })
   .attr("y2", function (d) { return y(d.service_group); })
-  .attr("stroke", "grey")
+  .attr("stroke", "#FFF")
   .attr("stroke-width", "1px");
 
 // Circles of variable 1
@@ -61,19 +62,19 @@ svg.selectAll("mycircle")
   .attr("cx", function (d) { return x(d.year2000); })
   .attr("cy", function (d) { return y(d.service_group); })
   .attr("r", "6")
-  .style("fill", "#69b3a2")
+  .style("fill", "#FCBB0A")
   .on("mouseover", function (event, d) {
-    d3.select(this).attr("r", "8").style("fill", "gray");
+    d3.select(this).attr("r", "8").style("fill", "#FFF");
     svg.append("text")
       .attr("class", "tooltip")
       .attr("x", x(d.year2000) + 10)
       .attr("y", y(d.service_group) - 10)
       .text(d.year2000)
-      .attr("fill", "#000")
+      .attr("fill", "#FFF")
       .attr("font-size", "12px");
   })
   .on("mouseout", function (event, d) {
-    d3.select(this).attr("r", "6").style("fill", "#69b3a2");
+    d3.select(this).attr("r", "6").style("fill", "#FCBB0A");
     svg.select(".tooltip").remove();
   });
 
@@ -84,19 +85,19 @@ svg.selectAll("mycircle")
   .attr("cx", function (d) { return x(d.year2022); })
   .attr("cy", function (d) { return y(d.service_group); })
   .attr("r", "6")
-  .style("fill", "#4C4082")
+  .style("fill", "#E15D14")
   .on("mouseover", function (event, d) {
-    d3.select(this).attr("r", "8").style("fill", "gray");
+    d3.select(this).attr("r", "8").style("fill", "#FFF");
     svg.append("text")
       .attr("class", "tooltip")
       .attr("x", x(d.year2022) + 10)
       .attr("y", y(d.service_group) - 10)
       .text(d.year2022)
-      .attr("fill", "#000")
+      .attr("fill", "#FFF")
       .attr("font-size", "12px");
   })
   .on("mouseout", function (event, d) {
-    d3.select(this).attr("r", "6").style("fill", "#4C4082");
+    d3.select(this).attr("r", "6").style("fill", "#E15D14");
     svg.select(".tooltip").remove();
   });
 
@@ -107,13 +108,13 @@ svg.append("circle")
   .attr("cx", width - 150)
   .attr("cy", height + 50)
   .attr("r", 6)
-  .style("fill", "#69b3a2");
+  .style("fill", "#FCBB0A");
 
 svg.append("text")
   .attr("x", width - 140)
   .attr("y", height + 55)
   .text("Year 2000")
-  .attr("fill", "#000")
+  .attr("fill", "#FFF")
   .attr("font-size", "12px");
 
 // Circles of variable 2
@@ -121,11 +122,11 @@ svg.append("circle")
   .attr("cx", width - 60)
   .attr("cy", height + 50)
   .attr("r", 6)
-  .style("fill", "#4C4082");
+  .style("fill", "#E15D14");
 
 svg.append("text")
   .attr("x", width - 50)
   .attr("y", height + 55)
   .text("Year 2022")
-  .attr("fill", "#000")
+  .attr("fill", "#FFF")
   .attr("font-size", "12px");

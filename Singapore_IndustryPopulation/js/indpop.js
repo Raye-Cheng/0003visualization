@@ -7,7 +7,9 @@
     // Specify the configuration items and data for the chart
     setTimeout(function () {
   option = {
-    legend: {},
+    legend: {
+      textStyle: {color: '#FFFFFF'}
+    },
     tooltip: {
       trigger: 'axis',
       showContent: false
@@ -21,33 +23,45 @@
       ['Others', 13.1,20.7,19.2,20.3,21.2,19.5,22.4,20.5,22.7,20.8,37.5,23.5,26.4,26.8,24.8,23.2,20,21.7,21.6,23.5,21.2,23.4,21.9]
       ]
     },
-    xAxis: { type: 'category' },
-    yAxis: { gridIndex: 0 },
+    xAxis: { 
+      type: 'category',
+      axisLabel: {color: '#FFFFFF'},
+      axisLine: {
+        lineStyle: {
+          color: '#FFFFFF'}} },
+    yAxis: { 
+      gridIndex: 0,
+      axisLabel: {color: '#FFFFFF'} },
     grid: { top: '40%' },
     series: [
       {
         type: 'line',
         smooth: true,
         seriesLayoutBy: 'row',
-        emphasis: { focus: 'series' }
+        emphasis: { focus: 'series' },
+        lineStyle: { color: '#57B9C0' } //manufacture
       },
       {
         type: 'line',
         smooth: true,
         seriesLayoutBy: 'row',
-        emphasis: { focus: 'series' }
+        emphasis: { focus: 'series' },
+        lineStyle: { color: '#77BC4D' } //construction
+        
       },
       {
         type: 'line',
         smooth: true,
         seriesLayoutBy: 'row',
-        emphasis: { focus: 'series' }
+        emphasis: { focus: 'series' },
+        lineStyle: { color: '#F3C55E' } //service
       },
       {
         type: 'line',
         smooth: true,
         seriesLayoutBy: 'row',
-        emphasis: { focus: 'series' }
+        emphasis: { focus: 'series' },
+        lineStyle: { color: '#F46FA1' } //others(including agricultural)
       },
       {
         type: 'pie',
@@ -58,13 +72,17 @@
           focus: 'self'
         },
         label: {
-          formatter: '{b}: {@2000} ({d}%)'
+          formatter: '{b}: {@2000} ({d}%)',
+          textStyle: {
+            color: '#FFFFFF'
+          }
         },
         encode: {
           itemName: 'service_group',
           value: '2000',
           tooltip: '2000'
-        }
+        },
+        color: ['#57B9C0','#77BC4D', '#F3C55E', '#F46FA1']
       }
     ]
   };
@@ -76,14 +94,17 @@
         series: {
           id: 'pie',
           label: {
-            formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+            formatter: '{b}: {@[' + dimension + ']} ({d}%)',
+            textStyle: {
+              color: '#FFFFFF'
+            }
           },
           textStyle: {
-            color: "#9DCFCF"},
+            color: "#FFFFFF"},
           encode: {
             value: dimension,
             tooltip: dimension
-          }
+          }         
         }
       });
     }

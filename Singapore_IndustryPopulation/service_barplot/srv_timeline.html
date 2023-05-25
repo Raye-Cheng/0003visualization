@@ -2,17 +2,12 @@
 <meta charset="utf-8">
 
 <!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="/assets/js/industry/srv_barploy.js"></script> 
+<script src="https://d3js.org/d3.v6.js"></script>
 
-
-<!-- Add a slider for the timeline -->
 <body>
-<input type="range" id="yearSlider" min="2000" max="2022" step="1" value="2000" onchange="update(this.value)">
-<div id="selectedYear"></div>
-
-<!-- Create div for the chart -->
-<div id="service_barplot"></div>
+  <!-- Prepare a DOM with a defined width and height for ECharts -->
+  <div id="service_barplot" style="width: 600px;height:700px;"></div>
 </body>
 
-</html>
+<script src="./srv_barplot.js"></script>
+

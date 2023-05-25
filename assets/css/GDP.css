@@ -61,8 +61,9 @@
 .pg2-text {
     position: absolute;
     right: 50%;
-    left: 6%;
+    left: 4%;
     background-color: rgba(255, 255, 255, 0.166);
+    padding:2%;
 }
 
 .paragraph-main,
@@ -86,7 +87,7 @@
 .pg2-2-main {
     background-color: rgba(255, 255, 255, 0.166);
     text-align: right;
-    /* padding: 5%; */
+    padding: 2%; 
     line-height: 1.5;
     font-size: medium;
     font-weight: 400;

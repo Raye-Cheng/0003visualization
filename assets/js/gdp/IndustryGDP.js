@@ -20,7 +20,11 @@ function showIndustryGDP(elementId) {
                 type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
             }
         },
-        legend: {},
+        legend: {
+            textStyle:{
+                color:"#FFFFFF"
+            }
+        },
         grid: {
             left: '3%',
             right: '4%',
@@ -34,6 +38,9 @@ function showIndustryGDP(elementId) {
                 textStyle: {
                     color: "#FFFFFF"
                 }
+            },
+            axisLabel:{
+                color:'#FFFFFF'
             }
         },
         xAxis: {
@@ -41,17 +48,35 @@ function showIndustryGDP(elementId) {
             data: ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007',
                 '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016',
                 '2017', '2018', '2019', '2020', '2021'],
-               
-                splitLine: {
-                    lineStyle: {
-                    
-                        color: ['#02ad81']
+            splitLine: {
+                lineStyle: {
+                    color: ['#FFFFFF']
                     }
                 },
-
-
+            axisLabel:{
+                color:'#FFFFFF'
+            }
         },
         series: [
+            {
+                name: 'Agriculture',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: false
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                itemStyle:{
+                    normal:{
+                        color:'#F46FA1'
+                    }
+                },
+                data: [9496, 7862.45, 6933.85, 6307.9, 6737.63, 7364.27, 7580.15, 8223.81, 8460.84,
+                    8309.72, 9172.71, 10249.39, 10416.58, 11220.39, 11501.51, 10656.94, 10722.33, 11243.01,
+                    11984.77, 12769.83, 12009.39, 14124.79]
+            },
             {
                 name: 'Services',
                 type: 'bar',
@@ -64,7 +89,7 @@ function showIndustryGDP(elementId) {
                 },
                 itemStyle:{
                     normal:{
-                        color:'#4ad2ff'
+                        color:'#F3C55E'
                     }
                 },
                 data: [6252536.63, 6071284.85, 6245442.33, 6639596.57, 7636323.29, 8571691.43,
@@ -82,23 +107,14 @@ function showIndustryGDP(elementId) {
                 emphasis: {
                     focus: 'series'
                 },
+                itemStyle:{
+                    normal:{
+                        color:'#77BC4D'
+                    }
+                },
                 data: [3345415.16, 2900347.04, 3001398.16, 3118640.36, 3860488.96, 4201706.13, 4792141.98,
                     5415429.46, 5394589.49, 5517683.71, 6758181.06, 7481443.32, 7833025.36, 7651183.42,
                     8048244.15, 7935384.94, 7895636.4, 8599083.52, 10098966.03, 9535062.43, 8564312.9, 10474245.28]
-            },
-            {
-                name: 'Agriculture',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                    show: false
-                },
-                emphasis: {
-                    focus: 'series'
-                },
-                data: [9496, 7862.45, 6933.85, 6307.9, 6737.63, 7364.27, 7580.15, 8223.81, 8460.84,
-                    8309.72, 9172.71, 10249.39, 10416.58, 11220.39, 11501.51, 10656.94, 10722.33, 11243.01,
-                    11984.77, 12769.83, 12009.39, 14124.79]
             }
         ]
     };

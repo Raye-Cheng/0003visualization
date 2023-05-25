@@ -17,236 +17,46 @@
     <!--D3.js-->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/mrt.css">
 </head>
-<style>
-    body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        overflow: hidden;
-        background: #fff;
-    }
-
-    #container {
-        top: 30px;
-        width: 40%;
-        height: 93%;
-        z-index: 0;
-        position: absolute;
-        /* background: #000; */
-    }
-
-    #student {
-        right: auto;
-        width: auto;
-        height: 60%;
-        display: block;
-        z-index: 2;
-        background: #F8F8F8;
-        position: relative;
-        /* overflow:auto; */
-    }
-    #student2 {
-        right: auto;
-        width: auto;
-        height: 90%;
-        display: block;
-        z-index: 2;
-        background: #F8F8F8;
-        position: relative;
-        /* overflow:auto; */
-    }
-
-    #text-wrap student {
-        width: 50%;
-        height: 93%;
-        left: 940px;
-        top: 90px;
-        position: absolute;
-        z-index: 99;
-    }
-    #text-wrap student2 {
-        width: 50%;
-        height: 93%;
-        left: 940px;
-        top: 90px;
-        position: absolute;
-        z-index: 99;
-    }
-
-
-    #pagecontent {
-        width: 100%;
-        height: 1%;
-        z-index: 1;
-    }
-
-    #Options {
-        left: 940px;
-        top: 30px;
-        position: relative;
-        z-index: 1;
-    }
-
-
-    #text-wrap {
-        top: 30px;
-        right: 40px;
-        position: absolute;
-        float: right;
-        width: 50%;
-        height: 95%;
-        color: #000;
-        background-color: #fff;
-        overflow: auto;
-        z-index: 2;
-    }
-
-    #text-wrap p {
-        border-style: solid;
-        border-color: transparent transparent transparent #003866;
-        border-width: 0 4px 0 8px;
-        color: #000;
-        background-color: #F1F1F1;
-        z-index: 2;
-        text-align: justify;
-        padding: 10px;
-    }
-
-
-    /* #legend {
-  left:30px; 
-  top:600px;
-  width: 500px;
-  height: 100px; 
-  z-index: 1;
-  position: relative;
-  background-color: #E0E0E0;
-  opacity: 0.8;
-} */
-
-    #legend img {
-        left: 15px;
-        top: 620px;
-        width: 15%;
-        /* height: 4%;  */
-        z-index: 2;
-        position: relative;
-        opacity: 10
-    }
-
-    /* #legend p {
-  float: right;
-  width: 10px;
-  height: 100%; 
-  z-index: 1;
-  color: #000;
-  position: relative;
-  opacity: 0.8;
-} */
-
-
-    #tooltip {
-        position: absolute;
-        visibility: hidden;
-        z-index: 2;
-        right: 0;
-        top: 0;
-        width: 30%;
-        height: auto;
-        min-height: 100px;
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto;
-        grid-template-areas:
-            "icon title title"
-        ;
-
-        background-color: rgba(201, 252, 255, 0.597);
-        border: 1px solid #888;
-    }
-
-    .title {
-        grid-area: title;
-        font-weight: bold;
-        margin: 1px;
-    }
-
-    .item-a {
-        grid-area: item-a;
-        margin: 4px;
-    }
-
-    .item-b {
-        grid-area: item-b;
-        margin: 4px;
-    }
-
-    #item-c {
-        grid-area: item-c;
-        margin: 4px;
-        height: 300px;
-
-    }
-
-    .icon {
-        grid-area: icon;
-        margin: 4px;
-        max-width: 80%;
-        height: auto;
-        place-self: left;
-    }
-</style>
 
 <body>
 
     <div id="container">
         <div id="tooltip"></div>
         <div id="map"></div>
-      </div>
-
-    <!-- option box -->
-    <div id="pagecontent" style="position:relative; ">
-        <p><select id="Options" style="position: relative;">
-                <option value="mapOption">Map</option>
-                <option value="barOption">Bar</option>
-            </select>
-        </p>
     </div>
-
-
     <!-- map div -->
     <div id="map"> </div>
 
     <!-- sided text block -->
     <div id="text-wrap">
-        <p>This map is a global overview of contemporary Chinese diaspora during 2010–2011. The darker the blue, the
-            more Chinese immigrants there are in the country. The map also exhibits the multiple cities as a destination
-            of immigrants, which are represented by the diamond icons, the larger the size, the higher the immigrant
-            population of the city. There is an option box on the top right corner can convert the map to a bar chart
-            with the ranked top 20 countries of Chinese diaspora.</p>
-            <div id="student"></div>
-        <p>In this context, students, as one of the main sources of new immigrants, is inextricably tied to the rapid
-            economic development of China, as individual family incomes gradually increase, more and more families can
-            afford to study abroad. This is attractive to Chinese households because many believe that an international
-            degree can help obtain better jobs, while also gaining opportunities to learn a foreign language and expand
-            horizons. Some go abroad as they do not adapt to the difficult domestic education system, and there is also
-            a lack of world first-class universities. Many families also regard studying abroad as a path to
-            immigration. The graph below is the number of overseas Chinese students in higher education in 2019.</p>
+        <p>As part of the infrastructure visualization, a focus has been placed on Singapore's subway system. Initiated
+            as part of the government's urban planning strategies and to address traffic management needs, the MRT
+            system's first line, the North-South Line, was completed in 1987 (Newman and Kenworthy, 1999). Over the
+            years, the system has undergone expansion, contributing significantly to Singapore's urban development and
+            mobility (Barter, 2008).The role of Changi Airport, Singapore's primary civilian airport, is also
+            emphasized. Since its inception in 1981, Changi has been one of the largest transportation hubs in Southeast
+            Asia and has experienced continuous expansion to accommodate increasing air traffic and meet the diverse
+            needs of international travelers (Phang and Foo, 2002).
+        </p>
+        <div id="trade"></div>
+        <p> It appears that the largest volume of exports and imports is transacted with other Asian countries, further
+            illustrating the close trade ties Singapore shares with the region. The significant amount of imports from
+            Mainland China and Europe, along with considerable exports to Oceania and Mainland China, reveal Singapore's
+            diversified and global trade connections.</p>
 
-            <div id="student2"></div>
-            <p>By comparing the bar charts of contemporary Chinese diaspora and overseas student population, the order of
-                top destination countries is ranked differently. Traditional immigrants’ most popular destinations tend to
-                be Asian countries, while students tend to choose the most developed countries. This corresponds to the
-                background stated previously, universities in developed countries can provide more recognized international
-                degrees, more comprehensive academic system and better experience, students with a tendency to immigrate are
-                more likely to stay.</p>
+        <div id="trade2"></div>
+        <p>Singapore's trade strategy is notably anchored in its geographical position and economic requirements. As a
+            nation limited by its size, it necessitates substantial imports of goods and resources from abroad. At the
+            same time, Singapore's export focus on high-tech products and services echoes its economic growth strategy,
+            which leverages trade interactions with different regions globally (Heng, 1997; Huff, 1994; Ho, 2003).</p>
     </div>
 
 
 
     <script type="text/javascript">
-        var dom = document.getElementById('student');
+        var dom = document.getElementById('trade');
         var myChart1 = echarts.init(dom, null, {
             renderer: 'canvas',
             useDirtyRect: false
@@ -277,7 +87,7 @@
                 '#BA181B'
             ],
             title: {
-                text: 'Top Average annual air cargo volume by country/region of origin(2012-2022)',
+                text: 'Top Average annual air cargo volume by country/region of origin',
                 x: 'left',
                 textStyle: {
                     fontSize: 15,
@@ -288,11 +98,11 @@
                 trigger: 'item',
                 formatter: "{a} <br/>{b} : {c} ({d}%)"
             },
-            // legend: {
-            //     x: 'center',
-            //     y: 'bottom',
-            //     fontsize: 3,
-            // },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                fontsize: 3,
+            },
 
             toolbox: {
                 show: false,
@@ -364,127 +174,127 @@
         window.addEventListener('resize', myChart1.resize);
     </script>
 
-<script type="text/javascript">
-    var dom = document.getElementById('student2');
-    var myChart2 = echarts.init(dom, null, {
-        renderer: 'canvas',
-        useDirtyRect: false
-    });
-    var app = {};
+    <script type="text/javascript">
+        var dom = document.getElementById('trade2');
+        var myChart2 = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
 
-// Specify configurations and data graphs 
-var option = {
-    // 
-    textStyle: {
-        fontcolor:'#F7C37E',
-      },
-    color: [ 
-    '#e8f7e8',
-    '#d3f9d3',
-    '#c8fad2',
-    '#b4fac1',
-    '#aafab8',
-    '#97f9a7',
-    '#8ef89e',
-    '#85f796',
-    '#73f484',
-    '#6bf27a',
-    '#62f171',
-    '#52ec5d',
-    '#42e846',
-    '#3be538',
-    '#2BCF29',
-    '#1BBA18'
-    
-],
-title : {
-text: 'Top Average annual air cargo volume by country/region of destination(2012-2022)',
-x:'left',
-textStyle:{
-    fontSize: 15,
-    color: '#F7C37E'
-},
-},
-tooltip : {
-trigger: 'item',
-formatter: "{a} <br/>{b} : {c} ({d}%)"
-},
-// legend: {
-//     x : 'center',
-//     y : 'bottom',
-//     fontsize: 10,
-// },
+        // Specify configurations and data graphs 
+        var option = {
+            // 
+            textStyle: {
+                fontcolor: '#F7C37E',
+            },
+            color: [
+                '#e8f7e8',
+                '#d3f9d3',
+                '#c8fad2',
+                '#b4fac1',
+                '#aafab8',
+                '#97f9a7',
+                '#8ef89e',
+                '#85f796',
+                '#73f484',
+                '#6bf27a',
+                '#62f171',
+                '#52ec5d',
+                '#42e846',
+                '#3be538',
+                '#2BCF29',
+                '#1BBA18'
 
-toolbox: {
-show : false,
-feature : {
-    mark : {show: true},
-    // dataView : {show: true, readOnly: false},
-    magicType : {
-        show: true,
-        type: ['pie', 'funnel'],
-        option: {
-            funnel: {
-                x: '25%',
-                width: '50%',
-                funnelAlign: 'left',
-                max: 1548
-            }
-        }
-    },
-    // restore : {show: true},
-    // saveAsImage : {show: true}
-}
-},
-calculable : true,
-series : [
-{
-    name:'count of flights',
-    type:'pie',
-    radius : [50, 150],
-    center : ['25%', 200],
-    roseType : 'area',
-    itemStyle: {
-        normal: {
-            label: {
+            ],
+            title: {
+                text: 'Top Average annual air cargo volume by country/region of destination(2012-2022)',
+                x: 'left',
                 textStyle: {
-                  color:'#F7C37E',
-                    fontSize: 14,
-                    fontWeight:'bolder'
-                }
+                    fontSize: 15,
+                    color: '#F7C37E'
+                },
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                fontsize: 10,
             },
 
+            toolbox: {
+                show: false,
+                feature: {
+                    mark: { show: true },
+                    // dataView : {show: true, readOnly: false},
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '25%',
+                                width: '50%',
+                                funnelAlign: 'left',
+                                max: 1548
+                            }
+                        }
+                    },
+                    // restore : {show: true},
+                    // saveAsImage : {show: true}
+                }
+            },
+            calculable: true,
+            series: [
+                {
+                    name: 'count of flights',
+                    type: 'pie',
+                    radius: [50, 150],
+                    center: ['25%', 200],
+                    roseType: 'area',
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                textStyle: {
+                                    color: '#F7C37E',
+                                    fontSize: 14,
+                                    fontWeight: 'bolder'
+                                }
+                            },
+
+                        }
+                    },
+                    data: [
+                        { name: "	France	", value: 9049.87 },
+                        { name: "	Philippines	", value: 18628.85 },
+                        { name: "	Vietnam	", value: 20881.65 },
+                        { name: "	Germany	", value: 21020.51 },
+                        { name: "	Malaysia	", value: 26356.71 },
+                        { name: "	NorthAmerica	", value: 28054.81 },
+                        { name: "	UnitedKingdom	", value: 31541.32 },
+                        { name: "	MiddleEast	", value: 42415.38 },
+                        { name: "	Thailand	", value: 49126.19 },
+                        { name: "	Other countries/regions in Europe	", value: 51466.89 },
+                        { name: "	Japan	", value: 61067.82 },
+                        { name: "	SouthAsia	", value: 69792.71 },
+                        { name: "	 HongKong	", value: 79270.54 },
+                        { name: "	MainlandChina	", value: 90053.46 },
+                        { name: "	Oceania	", value: 128140.73 },
+                        { name: "	Other countries/regions in Asia	", value: 393704.91 },
+                    ]
+                }
+            ]
+        };
+
+        // Use just the specified configurations and data charts. 
+        if (option && typeof option === 'object') {
+            myChart2.setOption(option);
         }
-    },
-    data:[
-        {name:"	France	",value:	9049.87   	},
-        {name:"	Philippines	",value:	18628.85  	},
-        {name:"	Vietnam	",value:	20881.65   	},
-        {name:"	Germany	",value:	21020.51   	},
-        {name:"	Malaysia	",value:	26356.71   	},
-        {name:"	NorthAmerica	",value:	28054.81   	},
-        {name:"	UnitedKingdom	",value:	31541.32    	},
-        {name:"	MiddleEast	",value:	42415.38   	},
-        {name:"	Thailand	",value:	49126.19   	},
-        {name:"	Other countries/regions in Europe	",value:	51466.89  	},
-        {name:"	Japan	",value:	61067.82   	},
-        {name:"	SouthAsia	",value:	69792.71   	},
-        {name:"	 HongKong	",value:	79270.54   	},
-        {name:"	MainlandChina	",value:	90053.46   	},
-        {name:"	Oceania	",value:	128140.73    	},
-        {name:"	Other countries/regions in Asia	",value:	393704.91    	},
-    ]
-}
-]
-};
 
-// Use just the specified configurations and data charts. 
-    if (option && typeof option === 'object') {
-        myChart2.setOption(option);
-    }
-
-    window.addEventListener('resize', myChart2.resize);
-</script>
+        window.addEventListener('resize', myChart2.resize);
+    </script>
 
     <script type="text/javascript">
 

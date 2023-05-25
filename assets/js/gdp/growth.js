@@ -8,7 +8,7 @@ function deletegrowth() {
 
 function showgrowth() {
 
-  // 基于准备好的dom，初始化echarts实例
+  // Initialize the echarts instance based on the prepared dom
   growth = Highcharts.chart('chart', {
     chart: {
         zoomType: 'xy'
@@ -28,7 +28,13 @@ function showgrowth() {
             '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019',
             '2020', '2021'],
         zoomEnabled: true,
-        crosshair: true
+        crosshair: true,
+        lineColor:"#FFFFFF",
+        labels: {
+            style: {
+                color: 'red'
+            }
+        }
     }],
     yAxis: [{ // Primary yAxis
         labels: {
@@ -49,13 +55,13 @@ function showgrowth() {
         labels: {
             format: '{value} %',
             style: {
-                color: Highcharts.getOptions().colors[0]
+                color: "#FFFFFF"
             }
         },
         title: {
             text: 'GDP growth',
             style: {
-                color: Highcharts.getOptions().colors[0]
+                color: Highcharts.getOptions().colors["#FFFFFF"]
             }
         },
         opposite: true
@@ -76,8 +82,8 @@ function showgrowth() {
     series: [{
         name: 'Total GDP',
         type: 'waterfall',
-        upColor: '#32CD32',
-        color: '#DC143C',
+        upColor: '#77BC4D',
+        color: '#F46FA1',
         data: [704.76, 59.88, 61.61, 91.37, -23.45, 80.49, 121.78, 141.61, 187.67, 234.19, 260.68, 343.2,
             457.66, 974.77, 1525.32, 412.14, 693.4, 291.51, 898.59, 1779.75, 2599.34, 2278.97, 1909.02,
             1699.86, 1965.25, -592.83, -569.79, 2332.47, 4452.25, 5093.9, 5678.97, 9321.83, 6664.1,

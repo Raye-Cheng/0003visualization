@@ -4,10 +4,12 @@ var chart = Highcharts.chart('container', {
         backgroundColor: 'rgba(0,0,0,0)'
     },
     subtitle: {
-        text: 'source: Word Bank'
+        text: 'source: Word Bank',
+        style:{"color":"#FFFFFF"}
     },
     title: {
-        text: 'Singapore GDP'
+        text: 'Singapore GDP',
+        style:{"color":"#FFFFFF"}
     },
     xAxis: [{
         categories: ['1960', '1961', '1962', '1963', '1964', '1965', '1966', '1967', '1968', '1969',
@@ -18,13 +20,18 @@ var chart = Highcharts.chart('container', {
             '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019',
             '2020', '2021'],
         zoomEnabled: true,
-        crosshair: true
+        crosshair: true,
+        labels: {
+            style: {
+                color: '#FFFFFF'
+            }
+        }
     }],
     yAxis: [{ // Primary yAxis
         labels: {
             format: '{value}',
             style: {
-                color: Highcharts.getOptions().colors[1]
+                color: "#FFFFFF"
             }
         },
         floor: 0,
@@ -32,20 +39,20 @@ var chart = Highcharts.chart('container', {
         title: {
             text: 'Total GDP(million US$)',
             style: {
-                color: Highcharts.getOptions().colors[1]
+                color: "#FFFFFF"
             }
         }
     }, { // Secondary yAxis
         labels: {
             format: '{value} %',
             style: {
-                color: Highcharts.getOptions().colors[0]
+                color: "#BFBFBF"
             }
         },
         title: {
             text: 'GDP growth',
             style: {
-                color: Highcharts.getOptions().colors[0]
+                color: "#BFBFBF"
             }
         },
         opposite: true
@@ -66,8 +73,8 @@ var chart = Highcharts.chart('container', {
     series: [{
         name: 'Total GDP',
         type: 'waterfall',
-        upColor: '#32CD32',
-        color: '#DC143C',
+        upColor: '#77BC4D',
+        color: '#F46FA1',
         data: [704.76, 59.88, 61.61, 91.37, -23.45, 80.49, 121.78, 141.61, 187.67, 234.19, 260.68, 343.2,
             457.66, 974.77, 1525.32, 412.14, 693.4, 291.51, 898.59, 1779.75, 2599.34, 2278.97, 1909.02,
             1699.86, 1965.25, -592.83, -569.79, 2332.47, 4452.25, 5093.9, 5678.97, 9321.83, 6664.1,
@@ -88,7 +95,8 @@ var chart = Highcharts.chart('container', {
         tooltip: {
             valueSuffix: '%'
         },
-        yAxis: 1
+        yAxis: 1,
+        color:"#BFBFBF"
     }]
 });
 

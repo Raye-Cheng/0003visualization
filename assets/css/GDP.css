@@ -60,8 +60,9 @@
 
 .pg2-text {
     position: absolute;
-    right: 70%;
-    left: 8%;
+    right: 50%;
+    left: 6%;
+    background-color: rgba(255, 255, 255, 0.166);
 }
 
 .paragraph-main,

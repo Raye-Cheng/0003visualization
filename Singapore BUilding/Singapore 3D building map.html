@@ -60,6 +60,22 @@
     height: 10px;
     margin-right: 5px;
     }
+    #fly {
+    display: block;
+    position: absolute;
+    bottom: 80%;
+    right: 1%;
+    margin: 0px auto;
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+     background: #ee8a65;
+}
     </style>
 </head>
 <body>
@@ -70,16 +86,25 @@
     </div>
     <div class="map-overlay" id="legend"></div>
 
-    
+    <br>
+    <button id="fly">fly to 3D model of the buildings</button>   
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoieWFua2FuZyIsImEiOiJjbGQxd20yb3kwMnVoM29tbGx3YnY2dHRtIn0.L5YHOvr1c0RVBsEkvKHw5w';
 
-	var map = new mapboxgl.Map({
+	const start = {
+    center: [103.827,1.353], 
+	zoom: 11.2
+};
+    const end = {
+    center: [103.835,1.283],
+    zoom: 15.35,
+    pitch: 75
+};
+    var map = new mapboxgl.Map({
 		container: 'map', 
 		style: 'mapbox://styles/yankang/clhpat7hz01v701pgfnsn2cnt', 
-		center: [103.835,1.283], 
-		pitch: 75,
-		zoom: 15.35 
+		center: [103.835,1.353], 
+		zoom: 11.2 
 	});
 	const layers = [
 '1-12 floors',
@@ -97,6 +122,18 @@ const colors = [
 // create legend
 const legend = document.getElementById('legend');
  
+let isAtStart = true;
+ 
+document.getElementById('fly').addEventListener('click', () => {
+const target = isAtStart ? end : start;
+isAtStart = !isAtStart;
+ 
+map.flyTo({
+...target, 
+duration: 12000, 
+essential: true 
+});
+});
 layers.forEach((layer, i) => {
 const color = colors[i];
 const item = document.createElement('div');
@@ -109,6 +146,8 @@ value.innerHTML = `${layer}`;
 item.appendChild(key);
 item.appendChild(value);
 legend.appendChild(item);
+
+
 });
     
     map.dragPan.enable(); // Enable dragging on the map

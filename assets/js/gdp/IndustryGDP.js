@@ -20,7 +20,11 @@ function showIndustryGDP(elementId) {
                 type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
             }
         },
-        legend: {},
+        legend: {
+            textStyle:{
+                color:"#FFFFFF"
+            }
+        },
         grid: {
             left: '3%',
             right: '4%',
@@ -34,6 +38,9 @@ function showIndustryGDP(elementId) {
                 textStyle: {
                     color: "#FFFFFF"
                 }
+            },
+            axisLabel:{
+                color:'#FFFFFF'
             }
         },
         xAxis: {
@@ -46,8 +53,9 @@ function showIndustryGDP(elementId) {
                     color: ['#FFFFFF']
                     }
                 },
-
-
+            axisLabel:{
+                color:'#FFFFFF'
+            }
         },
         series: [
             {

@@ -13,11 +13,6 @@ function showGDPByIndustry(elementId) {
 
   // Specifies the configuration items and data for the chart
   option = {
-    title: {
-        text: 'Stacked Area Chart',
-        left:'center',
-        top: 'top'
-    },
     tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -30,7 +25,10 @@ function showGDPByIndustry(elementId) {
     legend: {
         data: ['Agriculture (% of GDP)', 'Industry (% of GDP)', 'Services (% of GDP)'],
         //right:'5%',
-        top: '5%'
+        top: '5%',
+        textStyle:{
+            color:"#FFFFFF"
+        }
     },
     toolbox: {
         feature: {
@@ -49,13 +47,19 @@ function showGDPByIndustry(elementId) {
             boundaryGap: false,
             data: ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007',
                 '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016',
-                '2017', '2018', '2019', '2020', '2021']
+                '2017', '2018', '2019', '2020', '2021'],
+            axisLabel:{
+                    color:'#FFFFFF'
+                }
         }
     ],
     yAxis: [
         {
             type: 'value',
-            max: 100
+            max: 100,
+            axisLabel:{
+                color:'#FFFFFF'
+            }
         }
     ],
     series: [

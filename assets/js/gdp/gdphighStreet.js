@@ -1,6 +1,7 @@
 var chart = Highcharts.chart('container', {
     chart: {
-        zoomType: 'xy'
+        zoomType: 'xy',
+        backgroundColor: 'rgba(0,0,0,0)'
     },
     subtitle: {
         text: 'source: Word Bank'

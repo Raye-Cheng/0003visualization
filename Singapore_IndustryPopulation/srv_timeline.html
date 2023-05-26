@@ -8,23 +8,49 @@
   <!-- Prepare a DOM with a defined width and height for ECharts -->
   <div id="service_barplot" style="width: 700px;height:800px;"></div>
   <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+    }
+
+    .main-container {
+      padding: 0px;
+      /* top: 10px; */
+    }
+
+    .container {
+      position: fixed;
+      padding: 0px;
+      /* top: 10px; */
+      /* width: 95vh;  */
+      width: 95vw;
+      height: 80vh;
+    }
+
+    .session {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
     .domain {
       stroke: #fff;
     }
-  
+
     .tick line {
       stroke: #fff;
     }
-    
+
     .tick text {
       fill: #fff;
     }
+
     line {
       stroke: #fff;
     }
   </style>
-  
+
 </body>
 
 <script src="/assets/js/industry/srv_barplot.js"></script>
-

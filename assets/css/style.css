@@ -661,6 +661,8 @@ section {
 .industries {
   /* background-color: #30485F; */
   background-image: linear-gradient(rgba(55, 82, 109, 1),rgba(82, 122, 163, 1));
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .industries .icon-box {

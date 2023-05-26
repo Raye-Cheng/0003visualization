@@ -561,40 +561,6 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- For button -->
-  <!-- <script>
-
-    const filters = document.getElementById('transportation-flters');
-    const items = document.querySelectorAll('.transportation-item');
-
-    filters.addEventListener('click', function (event) {
-      if (event.target.tagName === 'LI' && event.target.getAttribute('data-filter') === 'all') {
-        items.forEach(function (item) {
-          item.style.display = 'block'; // 显示所有图像
-        });
-
-        const activeFilter = document.querySelector('.filter-active');
-        activeFilter.classList.remove('filter-active');
-        event.target.classList.add('filter-active');
-      } else if (event.target.tagName === 'LI') {
-        const filterValue = event.target.getAttribute('data-filter');
-
-        items.forEach(function (item) {
-          if (filterValue === '.filter-airline' && item.classList.contains('filter-airline')) {
-            item.style.display = 'block';
-          } else if (filterValue === '.filter-infrastructure' && item.classList.contains('filter-infrastructure')) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-
-        const activeFilter = document.querySelector('.filter-active');
-        activeFilter.classList.remove('filter-active');
-        event.target.classList.add('filter-active');
-      }
-    });
-  </script> -->
 
 </body>
 

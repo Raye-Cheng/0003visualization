@@ -753,6 +753,23 @@ section {
 /*--------------------------------------------------------------
 # transportation
 --------------------------------------------------------------*/
+
+.transportation-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.transportation-item {
+  margin-bottom: 20px;
+}
+
+.transportation-description {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+
 .transportation .transportation-item {
   margin-bottom: 30px;
 }

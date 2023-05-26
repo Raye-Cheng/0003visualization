@@ -48,8 +48,8 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#homepage">Homepage</a></li>
-          <li><a class="nav-link scrollto" href="#introduction">About</a></li>
-          <li><a class="nav-link scrollto" href="#industries">Industries Structure</a></li>
+          <li><a class="nav-link scrollto" href="#introduction">Introduction with GDP</a></li>
+          <li><a class="nav-link scrollto" href="#industries">Industry Structure</a></li>
           <li><a class="nav-link scrollto " href="#transportation">Traffic Network</a></li>
           <li><a class="nav-link scrollto" href="#city">City Appearance</a></li>
           <li><a class="nav-link scrollto" href="#member">Member</a></li>
@@ -218,20 +218,24 @@
 
     <!-- Indutry Part -->
     <section id="industries" class="industries">
-      <div class="section-container">
-        <div class="section-graphics">
-          <div class="Induspopchart-embed" data-src="visualisation/354282" data-height="100%">
-            <iframe src='Singapore_IndustryPopulation/pie_index.html' title='Interactive or visual content'
-              frameborder='0' scrolling='no' style='width:80%;height: 800px;'
-              sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
-            </iframe>
-          </div>
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Singapore</h2>
+          <p>Industry Structure</p>
+        </div>
+    
+      <div class="indus-section-container">
+        <div class="indus-section-graphics">
+          <iframe src='Singapore_IndustryPopulation/pie_index.html' title='Interactive or visual content'
+            frameborder='0' scrolling='no' style='width:80%;height: 800px;'
+            sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
+          </iframe>
         </div>
 
-        <div class="section-text">
+        <div class="indus-section-text">
           <h2>Population change in different industries</h2>
 
-          <p class="paragraph-main">
+          <p class="indus-paragraph-main">
             There are four categories of industry in Singapore: Manufacturing,
             Construction, Service and Others. The proportion of service increased
             mostly during the past 23 years. The proportion of manufacturing decreased
@@ -247,21 +251,20 @@
         </div>
       </div>
 
-      <div class="section-container">
-        <div class="section-graphics">
-          <div class="Induspopchart-embed" data-src="visualisation/354282" data-height="100%">
-            <iframe src='Singapore_IndustryPopulation/srv_timeline.html' title='Interactive or visual content'
-              frameborder='0' scrolling='no' style='width:80%;height: 800px;'
-              sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
-            </iframe>
-          </div>
+      
+      <div class="indus-section-container">
+        <div class="indus-section-graphics">
+          <iframe src='Singapore_IndustryPopulation/srv_timeline.html' title='Interactive or visual content'
+            frameborder='0' scrolling='no' style='width:80%;height: 700px;'
+            sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
+          </iframe>
         </div>
 
-        <div class="section-text">
-          <h2>Service Industry</h2>
+        <div class="indus-section-text">
+          <h2>Sub-industries in Service Industry</h2>
 
-          <p class="paragraph-main">
-            From 2000-2022
+          <p class="indus-paragraph-main">
+            This is the population distribution in sub-service industries after 2000. In 2000, Singapore had a high number of employees in retail, public administration and education, transport and storage. However, over time, financial and insurance services started to take over from transport and storage. This shift can be attributed to Singapore's status as an important tax haven, which has attracted significant foreign investments and boosted the financial sector. Additionally, the decline in the proportion of employment in transport and storage is related to the decline in manufacturing. With fewer products to transport and store, the demand for these services naturally decreases.
           </p>
         </div>
       </div>
@@ -277,11 +280,13 @@
         </div>
 
         <div class="section-text">
-          <h2>Service Industry</h2>
+          <h2>Financial Investment from the World</h2>
 
           <p class="paragraph-main">
-            From 2000-2022
+            As a famous tax haven, Singapore published various of policies about tax. Late 1980s and 1990s witnessed significant changes in the field of tax policies. In this period, Singapore government published a series of policies to reduce the direct taxes and focus on indirect taxes (Leung, H.M., Low, L. and Toh, M.H., 1999). Direct taxes indicate the taxes from individual or company income, and their properties. Indirect taxes indicate the taxes from goods and services, customs and excise duties (Leung, H.M., Low, L. and Toh, M.H., 1999). Direct taxes related with the economy dynamic directly. So the decrease of direct taxes could attract more foreign investment and encourage more individuals to start a business.
           </p>
+          <a href="Singapore_IndustryPopulation/financial.html" title="More Details">Explore<i
+            class="bx bx-link"></i></a>
         </div>
       </div>
 
@@ -294,64 +299,59 @@
     <!-- ======= Transportation Section ======= -->
     <section id="transportation" class="transportation">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Singapore</h2>
           <p>Transportation Network</p>
         </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="transportation-flters">
-              <li data-filter=".filter-airline" class="filter-active">Airline</li>
-              <li data-filter=".filter-infrastructure ">Infrastructure construction</li>
-            </ul>
-          </div>
-        </div>
-
+    
         <div class="row transportation-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 transportation-item filter-airline">
-            <div class="transportation-wrap">
-              <img src="assets/img/airport_arrival.gif" class="img-fluid" alt="">
-              <div class="transportation-info">
-                <h4>Airline</h4>
-                <div class="transportation-links">
-                  <a href="Singapore_Transportation/flight.html" title="Airline"><i class="bx bx-link"></i></a>
+          <div class="col-lg-8">
+            <div class="transportation-item">
+              <div class="transportation-wrap">
+                <img src="assets/img/airport_arrival.gif" class="img-fluid" alt="">
+                <div class="transportation-info">
+                  <h4>Here is a map of the routes to Singapore and a comparison of the population arriving in Singapore</h4>
+                  <div class="transportation-links">
+                    <a href="Singapore_Transportation/flight.html" title="Airline"><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
+            <p class="transportation-description"> Singapore's transportation system is known for its efficiency, cleanliness, and accessibility. The integration of various modes of transportation makes it easy to navigate the city and explore its attractions while ensuring a smooth and reliable travel experience.</p>
           </div>
-
-          <div class="col-lg-4 col-md-6 transportation-item filter-infrastructure">
-            <div class="transportation-wrap">
-              <img src="assets/img/taxi_available.png" class="img-fluid" alt="">
-              <div class="transportation-info">
-                <h4>Taxi available in Singapore</h4>
-                <div class="transportation-links">
-                  <a href="https://taxirouter.sg/" title="infrastructure"><i class="bx bx-link"></i></a>
+    
+          <div class="col-lg-4">
+            <div class="transportation-item">
+              <div class="transportation-wrap">
+                <img src="assets/img/taxi_available.png" class="img-fluid" alt="">
+                <div class="transportation-info">
+                  <h4>Availability of taxi stops in Singapore</h4>
+                  <div class="transportation-links">
+                    <a href="https://taxirouter.sg/" title="infrastructure"><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 transportation-item filter-infrastructure ">
-            <div class="transportation-wrap">
-              <img src="assets/img/mrt.png" class="img-fluid" alt="">
-              <div class="transportation-info">
-                <div class="transportation-links">
-                  <a href="Singapore_Transportation/MrtAndAirport.html" title="infrastructure"><i
-                      class="bx bx-link"></i></a>
+    
+            <div class="transportation-item">
+              <div class="transportation-wrap">
+                <img src="assets/img/mrt.png" class="img-fluid" alt="">
+                <div class="transportation-info">
+                  <h4>More information</h4>
+                  <div class="transportation-links">
+                    <a href="Singapore_Transportation/MrtAndAirport.html" title="infrastructure"><i
+                        class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-    </section><!-- End Transportation Section -->
-
+    </section>
+    <!-- End Transportation Section -->
+    
+    
     <!-- ======= Lights Section ======= -->
     <section id="lights" class="lights">
       <div class="container" data- aos="fade-up">
@@ -364,13 +364,9 @@
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left"
             data-aos-delay="100">
             <div class="content d-flex flex-column justify-content-center">
-              <h3>Traffic influence and infrastructure</h3>
+              <h3>Street lighting in Singapore</h3>
               <p>
-                The city-state has invested significantly in underground
-                infrastructure projects, such as the Mass Rapid Transit (MRT) system and subterranean spaces for
-                commercial, retail, and residential purposes. These developments have not only increased land
-                utilization efficiency but have also contributed to Singapore's economic growth and competitiveness
-                (Chiu, 2018).
+                The lighting in Singapore plays a crucial role in shaping the city's identity and creating a visually captivating environment. Whether it's the stunning architectural landmarks, festive decorations, or well-lit public spaces, the lighting adds charm and vibrancy to Singapore's urban landscape, making it a delightful city to explore day and night.
               </p>
               <div class="portfolio-links">
 
@@ -396,6 +392,12 @@
 
     <!-- ======= city Section ======= -->
     <section id="city" class="city">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Singapore</h2>
+          <p>City Appearance</p>
+        </div>
+    
       <div class="section-container">
         <div class="section-graphics">
           <div>
@@ -564,10 +566,8 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- For button -->
-  <script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  </script>
 
 </body>
 

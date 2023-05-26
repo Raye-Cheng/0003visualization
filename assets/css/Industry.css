@@ -80,7 +80,7 @@
     overflow-y: auto;
     /* AG: setting the max height to force a scrollbar */
     max-height: 58vh;
-    width: 80%;
+    width: 100%;
 }
 
 .indus-pg2-main {

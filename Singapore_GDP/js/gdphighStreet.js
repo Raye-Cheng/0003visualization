@@ -21,6 +21,7 @@ var chart = Highcharts.chart('container', {
             '2020', '2021'],
         zoomEnabled: true,
         crosshair: true,
+        lineColor:"#FFFFFF",
         labels: {
             style: {
                 color: '#FFFFFF'

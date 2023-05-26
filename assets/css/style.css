@@ -858,7 +858,7 @@ section {
   text-transform: uppercase;
   padding: 0;
   margin: 0;
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .transportation .transportation-wrap .transportation-links {
@@ -1020,7 +1020,8 @@ section {
 .city {
   /* background: #3E5D7A; */
   background-image: linear-gradient(rgba(160, 184, 207, 1),rgb(201, 215, 228, 1));
-  padding: 60px 0;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .city .member {
@@ -1090,7 +1091,7 @@ section {
 }
 
 .city .member .member-info p {
-  font-style: italic;
+  /* font-style: italic; */
   font-size: 14px;
   line-height: 26px;
   color: #777777;

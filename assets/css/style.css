@@ -6,7 +6,8 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #ffffff;
-  background-color: #1E2D3B;
+  /* background-color: #1E2D3B; */
+  background-image: linear-gradient(rgba(27, 41, 54, 1),rgb(27, 41, 54, 1));
 }
 
 a {
@@ -652,7 +653,8 @@ section {
 # industries
 --------------------------------------------------------------*/
 .industries {
-  background-color: #30485F;
+  /* background-color: #30485F; */
+  background-image: linear-gradient(rgba(55, 82, 109, 1),rgba(82, 122, 163, 1));
 }
 
 .industries .icon-box {
@@ -898,7 +900,8 @@ section {
 --------------------------------------------------------------*/
 .transportation {
 
-  background-color: #37526D;
+  /* background-color: #37526D; */
+  background-image: linear-gradient(rgba(82, 122, 163, 1),rgba(119, 153, 187, 1));
 }
 
 .transportation h2 {
@@ -971,7 +974,8 @@ section {
 # lights
 --------------------------------------------------------------*/
 .lights {
-  background-color: #37526D;
+  /* background-color: #37526D; */
+  background-image: linear-gradient(rgba(119, 153, 187, 1),rgba(160, 184, 207, 1));
 }
 
 .lights .content {
@@ -1014,7 +1018,8 @@ section {
 # city
 --------------------------------------------------------------*/
 .city {
-  background: #3E5D7A;
+  /* background: #3E5D7A; */
+  background-image: linear-gradient(rgba(160, 184, 207, 1),rgb(201, 215, 228, 1));
   padding: 60px 0;
 }
 
@@ -1100,7 +1105,8 @@ section {
 # member
 --------------------------------------------------------------*/
 .member {
-  background-color: #446788;
+  /* background-color: #446788; */
+  background-image: linear-gradient(rgba(201, 215, 228, 1),rgba(255, 255, 255, 1));
 }
 
 .member .info {

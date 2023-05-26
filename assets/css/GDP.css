@@ -15,7 +15,8 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 0px;
     /* column-gap: 2%; */
-    background-color:#293E51;
+    /* background-color:#293E51; */
+    background-image: linear-gradient(rgba(27, 41, 54, 1),rgb(55, 82, 109, 1));
     padding-bottom: 0;
 }
 

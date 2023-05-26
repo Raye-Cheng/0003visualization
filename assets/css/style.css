@@ -1099,7 +1099,7 @@ section {
 }
 
 .city .member .member-info p {
-  /* font-style: italic; */
+  font-style: normal; 
   font-size: 14px;
   line-height: 26px;
   color: #777777;

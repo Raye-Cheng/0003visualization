@@ -541,7 +541,10 @@ section {
   font-family: "Poppins", sans-serif;
   color: #151515;
 }
-
+#section-text{
+  line-height: 24px;
+  font-size: medium;
+}
 /*--------------------------------------------------------------
 # introduction
 --------------------------------------------------------------*/
@@ -648,9 +651,10 @@ section {
 /*--------------------------------------------------------------
 # industries
 --------------------------------------------------------------*/
-.industries{
+.industries {
   background-color: #30485F;
 }
+
 .industries .icon-box {
   text-align: center;
   border: 1px solid #ebebeb;
@@ -842,6 +846,7 @@ section {
   text-align: center;
   z-index: 4;
 }
+
 .transportation .transportation-wrap .transportation-links2 {
   text-align: right;
   z-index: 4;
@@ -877,9 +882,10 @@ section {
 .transportation {
 
   background-color: #37526D;
-  }
-.transportation h2{
-  color:white;
+}
+
+.transportation h2 {
+  color: white;
 }
 
 .transportation-details {
@@ -947,9 +953,10 @@ section {
 /*--------------------------------------------------------------
 # lights
 --------------------------------------------------------------*/
-.lights{
+.lights {
   background-color: #37526D;
 }
+
 .lights .content {
   padding: 30px 0;
 }
@@ -1075,9 +1082,10 @@ section {
 /*--------------------------------------------------------------
 # member
 --------------------------------------------------------------*/
-.member{
-  background-color:#446788 ;
+.member {
+  background-color: #446788;
 }
+
 .member .info {
   width: 100%;
   background: #E4F3F5;
@@ -1416,10 +1424,8 @@ section {
   color: #fff;
 }
 
-#portrait{
-  display: flex; 
+#portrait {
+  display: flex;
   flex-wrap: wrap;
 }
-
-
 

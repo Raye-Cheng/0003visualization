@@ -24,7 +24,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/GDP.css">
   <link rel="stylesheet" href="assets/css/Industry.css">
 
@@ -183,11 +183,11 @@
         </p>
       </div>
       <div class="pg2-main">
-        <iframe frameborder="0" class="map" src="./Singapore_GDP/singapore_gdp.html"></iframe>
+        <iframe frameborder="0" class="map" src="Singapore_GDP/singapore_gdp.html"></iframe>
       </div>
 
       <div class="pg2-2-graphics" data-src="visualisation/354282" data-height="100%">
-        <iframe frameborder="0" class="map" src="./Singapore_GDP/combine.html"></iframe>
+        <iframe frameborder="0" class="map" src="Singapore_GDP/combine.html"></iframe>
       </div>
 
       <div class="section2-text">
@@ -205,74 +205,54 @@
     <!-- End GDP Part -->
 
     <!-- Indutry Part -->
-    <div class="indus-section-container">
-      <div class="indus-section-graphics">
+    <section id="industries" class="industries">
+      <div class="section-container">
+        <div class="section-graphics">
+          <div class="Induspopchart-embed" data-src="visualisation/354282" data-height="100%">
+            <iframe src='Singapore_IndustryPopulation/pie_index.html' title='Interactive or visual content'
+              frameborder='0' scrolling='no' style='width:80%;height: 800px;'
+              sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
+            </iframe>
+          </div>
+        </div>
 
-        <iframe src='/Singapore_IndustryPopulation/pie_index.html' title='Interactive or visual content' frameborder='0'
-          scrolling='no' style='width:80%;height: 800px;'
-          sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
-        </iframe>
+        <div class="section-text">
+          <h2>Population change in different industries</h2>
 
-      </div>
-
-      <div class="section-text">
-        <h2>Population change in different industries</h2>
-
-        <p class="paragraph-main">
-          The line chart left illustrates how the population in these industries has changed over time. It's clear that
-          the service industry has experienced significant growth, while the othe industries have remained relatively
-          stable. Additionally, we see a slight decline in manufacturing employment. There are a couple of reasons for
-          this. 1. Other countries offer cheaper labor, attracting some manufacturing business away from Singapore. 2.
-          Singapore has shifted its focus to high-tech industries since the late 1980s, which has impacted the
-          manufacturing workforce.
-        </p>
-      </div>
-    </div>
-
-    <div class="section-container">
-      <div class="section-graphics">
-        <div class="Induspopchart-embed" data-src="visualisation/354282" data-height="100%">
-          <iframe src='./Singapore_IndustryPopulation/srv_timeline.html' title='Interactive or visual content'
-            frameborder='0' scrolling='no' style='width:80%;height: 800px;'
-            sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
-          </iframe>
+          <p class="paragraph-main">
+            There are four categories of industry in Singapore: Manufacturing,
+            Construction, Service and Others. The proportion of service increased
+            mostly during the past 23 years. The proportion of manufacturing decreased
+            slightly, for the industry of construction and others, they almost kept
+            stable.
+            The line chart left illustrates how the population in these industries has changed over time. It's clear
+            that the service industry has experienced significant growth, while the othe industries have remained
+            relatively stable. Additionally, we see a slight decline in manufacturing employment. There are a couple of
+            reasons for this. 1. Other countries offer cheaper labor, attracting some manufacturing business away from
+            Singapore. 2. Singapore has shifted its focus to high-tech industries since the late 1980s, which has
+            impacted the manufacturing workforce.
+          </p>
         </div>
       </div>
 
-      <div class="section-text">
-        <h2>Sub-industries in Service Industry</h2>
+      <div class="section-container">
+        <div class="section-graphics">
+          <div class="Induspopchart-embed" data-src="visualisation/354282" data-height="100%">
+            <iframe src='Singapore_IndustryPopulation/srv_timeline.html' title='Interactive or visual content'
+              frameborder='0' scrolling='no' style='width:80%;height: 800px;'
+              sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
+            </iframe>
+          </div>
+        </div>
 
-        <p class="paragraph-main">
-          This is the population distribution in sub-service industries after 2000. In 2000, Singapore had a high number
-          of employees in retail, public administration and education, transport and storage. However, over time,
-          financial and insurance services started to take over from transport and storage. This shift can be attributed
-          to Singapore's status as an important tax haven, which has attracted significant foreign investments and
-          boosted the financial sector. Additionally, the decline in the proportion of employment in transport and
-          storage is related to the decline in manufacturing. With fewer products to transport and store, the demand for
-          these services naturally decreases.
-        </p>
-      </div>
-    </div>
+        <div class="section-text">
+          <h2>Service Industry</h2>
 
-    <div class="section-container">
-      <div class="section-graphics">
-        <div class="Induspopchart-embed" data-src="visualisation/354282" data-height="100%">
-          <iframe src='./Singapore_IndustryPopulation/financial/financial.html' title='Interactive or visual content'
-            frameborder='0' scrolling='no' style='width:80%;height: 800px;'
-            sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
-          </iframe>
+          <p class="paragraph-main">
+            From 2000-2022
+          </p>
         </div>
       </div>
-
-      <div class="section-text">
-        <h2>Financial Investment from the World (million dollars)</h2>
-
-        <p class="paragraph-main">
-          Late 1980s and 1990s witnessed significant changes in the field of tax policies. In this period, Singapore government published a series of policies to reduce the direct taxes and focus on indirect taxes. Direct taxes indicate the taxes from individual or company income, and their properties. Indirect taxes indicate the taxes from goods and services, customs and excise duties (Leung, H.M., Low, L. and Toh, M.H., 1999). Direct taxes related with the economy dynamic directly. So the decrease of direct taxes could attract more foreign investment and encourage more individuals to start a business.
-        </p>
-      </div>
-    </div>
-
     </section>
     <!-- End Industry Part -->
 
@@ -284,14 +264,13 @@
 
         <div class="section-title">
           <h2>Singapore</h2>
-          <p>CTransportation Network</p>
+          <p>Transportation Network</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="transportation-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-airline">Airline</li>
+              <li data-filter=".filter-airline" class="filter-active">Airline</li>
               <li data-filter=".filter-infrastructure ">Infrastructure construction</li>
             </ul>
           </div>
@@ -345,8 +324,10 @@
       <div class="container" data- aos="fade-up">
 
         <div class="row no-gutters">
-          <div class="image col- xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
-            data-aos="fade-right" data-aos-delay="100"></div>
+          <!-- <div class="image col- xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
+            data-aos="fade-right" data-aos-delay="100"></div> -->
+          <iframe src="infrastruction/lamp_map_compare.html" frameborder="0" height='500px' width='100%'></iframe>
+
           <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left"
             data-aos-delay="100">
             <div class="content d-flex flex-column justify-content-center">
@@ -359,9 +340,10 @@
                 (Chiu, 2018).
               </p>
               <div class="portfolio-links">
-                <a href="infrastruction/lamp_map_compare.html" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="infrastruction/lamp_map_compare.html" title="More Details"><i class="bx bx-link"></i></a>
+
+                <a href="infrastruction/lamp_map_compare.html" title="More Details">Explore<i
+                    class="bx bx-link"></i></a>
+                <i>
               </div>
 
               <div class="row">
@@ -384,38 +366,56 @@
       <div class="section-container">
         <div class="section-graphics">
           <div>
-            <iframe width='100%' height='700px' src="Singapore BUilding/Singapore HBD completed year.html"
-              title="Monochrome-copy" style="border:none;">
+            <iframe width='100%' height='600px' src="Singapore_Building/Singapore_HDB.html" title="Monochrome-copy"
+              style="border:none;">
             </iframe>
           </div>
         </div>
         <div class="section-text">
-          <h2> The 2D map for buildings</h2>
+
           <p class="paragraph-main">
             This map basically shows the time that the HDB buildings that are built in Singapore and how they
             distribute.<br>
             We can find out that the buildings become denser and gradually constructed far from the center of the
             Singapore.<br>
-            This can also be an index that shows the rapid development of Singapore.<br>
+          <h2> Why chose the HDB building?</h2>
+          This can also be an index that shows the rapid development of Singapore.<br>
+          HDB is set for dealing with Singapore's housing crisis since 1960. People enjoy the housing schemesand grants
+          to finance thier flat purchases. This new generation housing and sustainable towns ensures people's living
+          standard and help the singapore's government to develop the economy and revive the city.<br>
 
           </p>
+          <a href="Singapore_Building/Singapore_HDB.html" title="More Details">Explore<i class="bx bx-link"></i></a>
         </div>
       </div>
       <div class="section-container">
         <div class="section-graphics">
           <div class="Induspopchart-embed" data-src="visualisation/354282" data-height="100%">
-            <iframe width='100%' height='700px' src="Singapore BUilding/Singapore 3D building map.html"
-              title="Monochrome" onclick="redirectToURL()" style="border:none;">
+            <iframe width='100%' height='600px' src="Singapore_Building/Singapore_3D_building_map.html"
+              title="Monochrome" style="border:none;">
             </iframe>
           </div>
         </div>
+        <br>
 
         <div class="section-text">
-          <h2>Service Industry</h2>
+          <h2>Singapore Building Map</h2>
 
           <p class="paragraph-main">
-            In 2000,
+            This 2D map shows the height of each HDB building, and we use the maximum floors of the building to replace
+            the height of the building. It is not hard to see that most of the buildings have the floors between 1-26,
+            while the highest buildings which featured with 40-50 floors, mostly located near the city center of the
+            singapore.,
           </p>
+          <p>These features of HDB buildings help push the Singapore's mobility and recovery from the economic recession
+            considered the gdp change as discussed before.
+            The 3D building map highlights that HDB buildings generally have fewer floors, with taller buildings
+            clustered in the southern region, closer to the city centre. This urban planning strategy optimizes space
+            utilization and addresses the challenges appeared when rapid economic growth and population expansion. It
+            also contributes to the city's revival by creating a more efficient and sustainable urban environment.
+          </p>
+          <a href="Singapore_Building/Singapore_3D_building_map.html" title="More Details">Explore<i
+              class="bx bx-link"></i></a>
         </div>
       </div>
     </section>
@@ -530,11 +530,12 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <!-- <script>
-  function redirectToURL() {
-    window.location.href = '';
-  }
-</script> -->
+
+  <!-- For button -->
+  <script>
+
+  </script>
+
 </body>
 
 </html>

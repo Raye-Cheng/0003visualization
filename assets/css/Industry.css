@@ -33,6 +33,7 @@
     /* AG: setting the max height to force a scrollbar */
     max-height: 58vh;
     width: 100%;
+    padding:5%;
 }
 
     /*barplot*/
@@ -71,15 +72,17 @@
     /* AG: setting the max height to force a scrollbar */
     max-height: 58vh;
     width: 100%;
+    padding:5%;
 }
 
     /*investment*/
     .indus-invest-container {
         text-align: middle;
-        padding-top: 0%;
+        padding-top: 2%;
         display: grid;
         grid-template-columns: 2fr 1fr;
         column-gap: 2%;
+        height:auto;
         /* background-color: #3E5D7A; */
         /* padding-bottom: 8%; */
     }
@@ -105,6 +108,7 @@
         font-size: medium;
         font-weight: 400;
         font-size: 1.5;
+        padding: 5%;
         overflow-y: auto;
         /* AG: setting the max height to force a scrollbar */
         max-height: 58vh;

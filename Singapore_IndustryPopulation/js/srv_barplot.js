@@ -62,19 +62,33 @@ svg.selectAll("mycircle")
   .attr("cx", function (d) { return x(d.year2000); })
   .attr("cy", function (d) { return y(d.service_group); })
   .attr("r", "6")
+<<<<<<< Updated upstream:Singapore_IndustryPopulation/js/srv_barplot.js
   .style("fill", "#FCBB0A")
   .on("mouseover", function (event, d) {
     d3.select(this).attr("r", "8").style("fill", "#FFF");
+=======
+  .style("fill", "#69b3a2")
+  .on("mouseover", function (event, d) {
+    d3.select(this).attr("r", "8").style("fill", "gray");
+>>>>>>> Stashed changes:Singapore_IndustryPopulation/service_barplot/srv_barplot.js
     svg.append("text")
       .attr("class", "tooltip")
       .attr("x", x(d.year2000) + 10)
       .attr("y", y(d.service_group) - 10)
       .text(d.year2000)
+<<<<<<< Updated upstream:Singapore_IndustryPopulation/js/srv_barplot.js
       .attr("fill", "#FFF")
       .attr("font-size", "12px");
   })
   .on("mouseout", function (event, d) {
     d3.select(this).attr("r", "6").style("fill", "#FCBB0A");
+=======
+      .attr("fill", "#000")
+      .attr("font-size", "12px");
+  })
+  .on("mouseout", function (event, d) {
+    d3.select(this).attr("r", "6").style("fill", "#69b3a2");
+>>>>>>> Stashed changes:Singapore_IndustryPopulation/service_barplot/srv_barplot.js
     svg.select(".tooltip").remove();
   });
 
@@ -85,19 +99,33 @@ svg.selectAll("mycircle")
   .attr("cx", function (d) { return x(d.year2022); })
   .attr("cy", function (d) { return y(d.service_group); })
   .attr("r", "6")
+<<<<<<< Updated upstream:Singapore_IndustryPopulation/js/srv_barplot.js
   .style("fill", "#E15D14")
   .on("mouseover", function (event, d) {
     d3.select(this).attr("r", "8").style("fill", "#FFF");
+=======
+  .style("fill", "#4C4082")
+  .on("mouseover", function (event, d) {
+    d3.select(this).attr("r", "8").style("fill", "gray");
+>>>>>>> Stashed changes:Singapore_IndustryPopulation/service_barplot/srv_barplot.js
     svg.append("text")
       .attr("class", "tooltip")
       .attr("x", x(d.year2022) + 10)
       .attr("y", y(d.service_group) - 10)
       .text(d.year2022)
+<<<<<<< Updated upstream:Singapore_IndustryPopulation/js/srv_barplot.js
       .attr("fill", "#FFF")
       .attr("font-size", "12px");
   })
   .on("mouseout", function (event, d) {
     d3.select(this).attr("r", "6").style("fill", "#E15D14");
+=======
+      .attr("fill", "#000")
+      .attr("font-size", "12px");
+  })
+  .on("mouseout", function (event, d) {
+    d3.select(this).attr("r", "6").style("fill", "#4C4082");
+>>>>>>> Stashed changes:Singapore_IndustryPopulation/service_barplot/srv_barplot.js
     svg.select(".tooltip").remove();
   });
 

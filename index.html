@@ -294,64 +294,59 @@
     <!-- ======= Transportation Section ======= -->
     <section id="transportation" class="transportation">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Singapore</h2>
           <p>Transportation Network</p>
         </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="transportation-flters">
-              <li data-filter=".filter-airline" class="filter-active">Airline</li>
-              <li data-filter=".filter-infrastructure ">Infrastructure construction</li>
-            </ul>
-          </div>
-        </div>
-
+    
         <div class="row transportation-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 transportation-item filter-airline">
-            <div class="transportation-wrap">
-              <img src="assets/img/airport_arrival.gif" class="img-fluid" alt="">
-              <div class="transportation-info">
-                <h4>Airline</h4>
-                <div class="transportation-links">
-                  <a href="Singapore_Transportation/flight.html" title="Airline"><i class="bx bx-link"></i></a>
+          <div class="col-lg-8">
+            <div class="transportation-item">
+              <div class="transportation-wrap">
+                <img src="assets/img/airport_arrival.gif" class="img-fluid" alt="">
+                <div class="transportation-info">
+                  <h4>Here is a map of the routes to Singapore and a comparison of the population arriving in Singapore</h4>
+                  <div class="transportation-links">
+                    <a href="Singapore_Transportation/flight.html" title="Airline"><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
+            <p class="transportation-description"> Singapore's transportation system is known for its efficiency, cleanliness, and accessibility. The integration of various modes of transportation makes it easy to navigate the city and explore its attractions while ensuring a smooth and reliable travel experience.</p>
           </div>
-
-          <div class="col-lg-4 col-md-6 transportation-item filter-infrastructure">
-            <div class="transportation-wrap">
-              <img src="assets/img/taxi_available.png" class="img-fluid" alt="">
-              <div class="transportation-info">
-                <h4>Taxi available in Singapore</h4>
-                <div class="transportation-links">
-                  <a href="https://taxirouter.sg/" title="infrastructure"><i class="bx bx-link"></i></a>
+    
+          <div class="col-lg-4">
+            <div class="transportation-item">
+              <div class="transportation-wrap">
+                <img src="assets/img/taxi_available.png" class="img-fluid" alt="">
+                <div class="transportation-info">
+                  <h4>Availability of taxi stops in Singapore</h4>
+                  <div class="transportation-links">
+                    <a href="https://taxirouter.sg/" title="infrastructure"><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 transportation-item filter-infrastructure ">
-            <div class="transportation-wrap">
-              <img src="assets/img/mrt.png" class="img-fluid" alt="">
-              <div class="transportation-info">
-                <div class="transportation-links">
-                  <a href="Singapore_Transportation/MrtAndAirport.html" title="infrastructure"><i
-                      class="bx bx-link"></i></a>
+    
+            <div class="transportation-item">
+              <div class="transportation-wrap">
+                <img src="assets/img/mrt.png" class="img-fluid" alt="">
+                <div class="transportation-info">
+                  <h4>More information</h4>
+                  <div class="transportation-links">
+                    <a href="Singapore_Transportation/MrtAndAirport.html" title="infrastructure"><i
+                        class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-    </section><!-- End Transportation Section -->
-
+    </section>
+    <!-- End Transportation Section -->
+    
+    
     <!-- ======= Lights Section ======= -->
     <section id="lights" class="lights">
       <div class="container" data- aos="fade-up">
@@ -564,10 +559,42 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- For button -->
-  <script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  </script>
+  <!-- For button -->
+  <!-- <script>
+
+    const filters = document.getElementById('transportation-flters');
+    const items = document.querySelectorAll('.transportation-item');
+
+    filters.addEventListener('click', function (event) {
+      if (event.target.tagName === 'LI' && event.target.getAttribute('data-filter') === 'all') {
+        items.forEach(function (item) {
+          item.style.display = 'block'; // 显示所有图像
+        });
+
+        const activeFilter = document.querySelector('.filter-active');
+        activeFilter.classList.remove('filter-active');
+        event.target.classList.add('filter-active');
+      } else if (event.target.tagName === 'LI') {
+        const filterValue = event.target.getAttribute('data-filter');
+
+        items.forEach(function (item) {
+          if (filterValue === '.filter-airline' && item.classList.contains('filter-airline')) {
+            item.style.display = 'block';
+          } else if (filterValue === '.filter-infrastructure' && item.classList.contains('filter-infrastructure')) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        const activeFilter = document.querySelector('.filter-active');
+        activeFilter.classList.remove('filter-active');
+        event.target.classList.add('filter-active');
+      }
+    });
+  </script> -->
 
 </body>
 

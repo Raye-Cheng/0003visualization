@@ -1,4 +1,4 @@
-const data = [
+ const data = [
   { name: "Brunei Darussalam", coords: [4.4137155, 114.5653908], value: -41.1 },
   { name: "Mainland China", coords: [19.1153424, 72.9085796], value: 5487.20 },
   { name: "Hong Kong", coords: [22.2793278, 114.1628131], value: -3559.80 },

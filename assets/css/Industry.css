@@ -1,6 +1,6 @@
 .indus-section-container {
     text-align: right;
-    padding-top: 8%;
+    padding-top: 0%;
     display: grid;
     grid-template-columns: 2fr 1fr;
     column-gap: 2%;
@@ -39,15 +39,17 @@
 }
 
 .paragraph-description {
+    margin: auto;
     background-color: rgba(255, 255, 255, 0.166);
     text-align: left;
     padding: 1%;
 }
 
-.section-text {
+.indus-section-text {
     position: absolute;
     right: 5%;
     left: 70%;
+    color: white;
 }
 
 .section2-text {
@@ -66,8 +68,8 @@
     padding:2%;
 }
 
-.paragraph-main,
-.paragraph-main-scroll {
+.indus-paragraph-main,
+.indus-paragraph-main-scroll {
     background-color: rgba(255, 255, 255, 0.166);
     text-align: right;
     padding: 3%;

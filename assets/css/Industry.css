@@ -5,7 +5,7 @@
     grid-template-columns: 2fr 1fr;
     column-gap: 2%;
     /* background-color: #3E5D7A; */
-    padding-bottom: 8%;
+    /* padding-bottom: 8%; */
 }
 
 .indus-pg2-container {
@@ -20,7 +20,7 @@
 }
 
 .indus-section-graphics {
-    padding: 0 5%;
+    padding: 5%;
 }
 
 .indus-pg2-graphics {
@@ -72,7 +72,7 @@
 .indus-paragraph-main-scroll {
     background-color: rgba(255, 255, 255, 0.166);
     text-align: right;
-    padding: 3%;
+    /* padding: 3%; */
     line-height: 1.5;
     font-size: medium;
     font-weight: 400;

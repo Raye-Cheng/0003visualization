@@ -49,6 +49,7 @@
     position: absolute;
     right: 5%;
     left: 70%;
+    font-style: normal;
 }
 
 .section2-text {
@@ -79,6 +80,7 @@
     overflow-y: auto;
     /* AG: setting the max height to force a scrollbar */
     max-height: 58vh;
+    font-style: normal;
 }
 
 .pg2-main {
@@ -100,6 +102,6 @@
 
 h2 {
     text-transform: none;
-    font-size: 2;
+    page-break-inside: 2;
     margin-bottom: 5px;
 }

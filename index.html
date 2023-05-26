@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Singapore Economy Revival </title>
   <meta content="" name="description">
@@ -22,6 +23,7 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/image.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -111,7 +113,17 @@
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-            <img src="assets/img/intro_img.png" class="img-fluid" alt="">
+            <div class="img-comp-container">
+              <div class="img-comp-img">
+                <img src="assets/img/Singapore_now2.jpg" width="700" height="500">
+              </div>
+              <div class="img-comp-img img-comp-overlay">
+                <img src="assets/img/Singapore_past.jpg" width="700" height="500">
+              </div>
+            </div>
+            <script src="assets/js/image.js">
+              // initComparisons();
+            </script>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
             <h3></h3>
@@ -279,64 +291,59 @@
     <!-- ======= Transportation Section ======= -->
     <section id="transportation" class="transportation">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Singapore</h2>
           <p>Transportation Network</p>
         </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="transportation-flters">
-              <li data-filter=".filter-airline" class="filter-active">Airline</li>
-              <li data-filter=".filter-infrastructure ">Infrastructure construction</li>
-            </ul>
-          </div>
-        </div>
-
+    
         <div class="row transportation-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 transportation-item filter-airline">
-            <div class="transportation-wrap">
-              <img src="assets/img/airport_arrival.gif" class="img-fluid" alt="">
-              <div class="transportation-info">
-                <h4>Airline</h4>
-                <div class="transportation-links">
-                  <a href="Singapore_Transportation/flight.html" title="Airline"><i class="bx bx-link"></i></a>
+          <div class="col-lg-8">
+            <div class="transportation-item">
+              <div class="transportation-wrap">
+                <img src="assets/img/airport_arrival.gif" class="img-fluid" alt="">
+                <div class="transportation-info">
+                  <h4>Here is a map of the routes to Singapore and a comparison of the population arriving in Singapore</h4>
+                  <div class="transportation-links">
+                    <a href="Singapore_Transportation/flight.html" title="Airline"><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
+            <p class="transportation-description"> Singapore's transportation system is known for its efficiency, cleanliness, and accessibility. The integration of various modes of transportation makes it easy to navigate the city and explore its attractions while ensuring a smooth and reliable travel experience.</p>
           </div>
-
-          <div class="col-lg-4 col-md-6 transportation-item filter-infrastructure">
-            <div class="transportation-wrap">
-              <img src="assets/img/taxi_available.png" class="img-fluid" alt="">
-              <div class="transportation-info">
-                <h4>Taxi available in Singapore</h4>
-                <div class="transportation-links">
-                  <a href="https://taxirouter.sg/" title="infrastructure"><i class="bx bx-link"></i></a>
+    
+          <div class="col-lg-4">
+            <div class="transportation-item">
+              <div class="transportation-wrap">
+                <img src="assets/img/taxi_available.png" class="img-fluid" alt="">
+                <div class="transportation-info">
+                  <h4>Availability of taxi stops in Singapore</h4>
+                  <div class="transportation-links">
+                    <a href="https://taxirouter.sg/" title="infrastructure"><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 transportation-item filter-infrastructure ">
-            <div class="transportation-wrap">
-              <img src="assets/img/mrt.png" class="img-fluid" alt="">
-              <div class="transportation-info">
-                <div class="transportation-links">
-                  <a href="Singapore_Transportation/MrtAndAirport.html" title="infrastructure"><i
-                      class="bx bx-link"></i></a>
+    
+            <div class="transportation-item">
+              <div class="transportation-wrap">
+                <img src="assets/img/mrt.png" class="img-fluid" alt="">
+                <div class="transportation-info">
+                  <h4>More information</h4>
+                  <div class="transportation-links">
+                    <a href="Singapore_Transportation/MrtAndAirport.html" title="infrastructure"><i
+                        class="bx bx-link"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-    </section><!-- End Transportation Section -->
-
+    </section>
+    <!-- End Transportation Section -->
+    
+    
     <!-- ======= Lights Section ======= -->
     <section id="lights" class="lights">
       <div class="container" data- aos="fade-up">
@@ -549,10 +556,8 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- For button -->
-  <script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  </script>
 
 </body>
 

@@ -12,6 +12,8 @@ This project aims to showcase Singapore's economic development and sustainabilit
 
 ## Introduction
 We will first introduce the general project and why we choose Singaprore as our target.
+
+- [Main page](pic/index.png)
 - [Change of City](pic/introduction.png)
 
 ## GDP Showcase

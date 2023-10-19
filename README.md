@@ -13,8 +13,8 @@ This project aims to showcase Singapore's economic development and sustainabilit
 ## Introduction
 We will first introduce the general project and why we choose Singaprore as our target.
 
-- [Main page](pic/index.png)
-- [Change of City](pic/introduction.png)
+- [Main page](https://github.com/Raye-Cheng/0003visualization/blob/main/pic/index.png)
+- [Change of City](https://github.com/Raye-Cheng/0003visualization/blob/main/pic/introduction.png)
 
 ## GDP Showcase
 In this section, we will explore the GDP trends of Singapore to help you understand its economic growth patterns. Click on the following links to view relevant images:
